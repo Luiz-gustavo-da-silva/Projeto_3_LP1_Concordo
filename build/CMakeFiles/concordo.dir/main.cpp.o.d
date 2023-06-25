@@ -148,4 +148,9 @@ CMakeFiles/concordo.dir/main.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc
+ /usr/include/c++/11/bits/sstream.tcc \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/usuario.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/sistema.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/canal.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/usuario.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/servidor.h

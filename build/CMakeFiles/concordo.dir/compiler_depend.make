@@ -184,8 +184,17 @@ CMakeFiles/concordo.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/bits/sstream.tcc
+  /usr/include/c++/11/bits/sstream.tcc \
+  ../include/usuario.h \
+  ../include/sistema.h \
+  ../include/canal.h \
+  ../include/usuario.h \
+  ../include/servidor.h
 
+
+../include/servidor.h:
+
+../include/usuario.h:
 
 /usr/include/c++/11/sstream:
 
@@ -272,6 +281,8 @@ CMakeFiles/concordo.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/bits/ostream.tcc:
 
 /usr/include/c++/11/clocale:
+
+../include/canal.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
 
@@ -466,6 +477,8 @@ CMakeFiles/concordo.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+../include/sistema.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
