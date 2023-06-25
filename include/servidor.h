@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "canal.h";
+#include "canal.h"
 
 class Servidor {
 public:
