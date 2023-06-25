@@ -1,0 +1,3 @@
+/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles/concordo.dir
+/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles/edit_cache.dir
+/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles/rebuild_cache.dir
