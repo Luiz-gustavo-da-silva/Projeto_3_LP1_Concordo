@@ -52,7 +52,6 @@ public:
 
     void adicionarUsuario(int id)
     {
-
         participantesIDs.push_back(id);
     }
 

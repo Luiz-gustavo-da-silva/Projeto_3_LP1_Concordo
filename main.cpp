@@ -48,7 +48,7 @@ int main()
 {
 
     string linhaComando;
-    Usuario *novoUsuario;
+    
     Sistema *sistema = new Sistema();
     Servidor *servidor;
     vector<string> comandos;
@@ -59,6 +59,8 @@ int main()
         getline(cin, linhaComando);
 
         comandos = quebrarString(linhaComando);
+
+        //cout << "comando: " << comandos[0] << "email: " << comandos[1] << "senha: " << comandos[2] << "nome: "<< comandos[3] << endl;
 
         if (comandos.size() == 0)
         {
@@ -76,21 +78,29 @@ int main()
             }
             else
             {
+                auto novoUsuario = new Usuario();
+
                 novoUsuario->id = id;
                 novoUsuario->email = comandos[1];
                 novoUsuario->senha = comandos[2];
                 novoUsuario->nome = comandos[3];
+
+                sistema->cadastrarUsuario(novoUsuario);
+                
                 id++;
 
                 cout << "Usuário criado" << endl;
+
+                sistema->listarUsuarios();
             }
 
-            // cout << comandos[0] << comandos[1] << comandos[2]  << comandos[3] << endl;
+            
         }
         else if (comandos[0] == "login")
         {
             // Lógica para fazer login
-
+            
+            
             if (sistema->usuarioExiste(comandos[1]))
             {
                 if (sistema->login(comandos[1], comandos[2]))
@@ -288,11 +298,13 @@ int main()
         {
             std::cout << "Comando inválido." << std::endl;
         }
+
+        comandos.clear();
     }
 
-    delete novoUsuario;
+    /*delete novoUsuario;
     delete servidor;
-    delete sistema;
+    delete sistema;*/
 
     return 0;
 }

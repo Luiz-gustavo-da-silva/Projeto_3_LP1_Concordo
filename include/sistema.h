@@ -47,10 +47,11 @@ public:
     {
         for (const Usuario *usuario : usuarios)
         {
-            if (usuario->email == email)
+            cout << usuario->nome << endl;
+            /*if (usuario->email == email)
             {
                 return true;
-            }
+            }*/
         }
 
         return false;
@@ -111,6 +112,7 @@ public:
                 return server;
             }
         }
+        return nullptr;
     }
 
     void listarServidores()
@@ -145,19 +147,6 @@ public:
                 return usuario;
             }
         }
-    }
-
-    bool login(string email, string senha)
-    {
-        for (Usuario *usuario : usuarios)
-        {
-            if (usuario->email == email && usuario->senha == senha)
-            {
-                usuarioAtual = usuario;
-                return true;
-            }
-        }
-        return false;
     }
 
     int adicionarUsuarioNoServidor(string nome, string codigoConvite)
@@ -213,11 +202,18 @@ public:
         {
             for (const Usuario *usuario : usuarios)
             {
-                if(usuario->id == ids[i]){
+                if (usuario->id == ids[i])
+                {
                     cout << usuario->nome << endl;
                 }
-                
             }
+        }
+    }
+    void listarUsuarios()
+    {
+        for (const Usuario *usuario : usuarios)
+        {
+            cout << usuario->nome << endl;
         }
     }
 };

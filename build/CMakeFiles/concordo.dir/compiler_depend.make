@@ -189,6 +189,7 @@ CMakeFiles/concordo.dir/main.cpp.o: ../main.cpp \
   ../include/sistema.h \
   ../include/canal.h \
   ../include/usuario.h \
+  ../include/servidor.h \
   ../include/servidor.h
 
 

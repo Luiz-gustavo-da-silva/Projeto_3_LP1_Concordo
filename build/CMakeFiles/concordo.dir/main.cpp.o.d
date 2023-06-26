@@ -153,4 +153,5 @@ CMakeFiles/concordo.dir/main.cpp.o: \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/sistema.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/canal.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/usuario.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/servidor.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/servidor.h
