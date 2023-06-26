@@ -14,6 +14,18 @@ public:
     string codigoConvite;
     vector<Canal*> canais;
     vector<int> participantesIDs;
+
+    bool verificaUsuarioDono(int id){
+        if(usuarioDonoId == id ){
+            return true;
+        }else{
+            return false;   
+        }
+    }
+
+    void setDescricao(string descricao){
+        this->descricao = descricao;
+    }   
 };
 
 #endif

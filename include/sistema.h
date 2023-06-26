@@ -14,9 +14,11 @@ using namespace std;
 class Sistema
 {
 public:
+
+    // fazer o encapsulamento desses dados!!!
     vector<Usuario *> usuarios;
     vector<Servidor *> servidores;
-    Usuario *usuarioAtual;
+    Usuario *usuarioAtual = nullptr;
     Servidor *servidorAtual;
     Canal *canalAtual;
 
@@ -33,8 +35,8 @@ public:
         {
             delete objeto;
         }
-        
-        //usuarios.clear();
+
+        // usuarios.clear();
     }
 
     void cadastrarUsuario(Usuario *usuario)
@@ -68,7 +70,8 @@ public:
         return false;
     }
 
-    bool login(string email, string senha){
+    bool login(string email, string senha)
+    {
         for (Usuario *usuario : usuarios)
         {
             if (usuario->email == email && usuario->senha == senha)
@@ -78,7 +81,52 @@ public:
             }
         }
         return false;
-    }  
+    }
+
+    void logout()
+    {
+        usuarioAtual = nullptr;
+    }
+
+    bool verificaUsuarioLogado()
+    {
+        if (usuarioAtual == nullptr)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    void criarServidor(Servidor *servidor)
+    {
+        servidores.push_back(servidor);
+    }
+
+    bool servidorExiste(string nome)
+    {
+        for (const Servidor *server : servidores)
+        {
+            if (server->nome == nome)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    Servidor * retornaServidor(string nome){
+
+        for (Servidor *server : servidores)
+        {
+            if (server->nome == nome)
+            {
+                return server;
+            }
+        }
+
+    }
+
 
 };
 
