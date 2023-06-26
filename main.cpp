@@ -141,7 +141,7 @@ int main()
         }
         else if (comandos[0] == "set-server-desc")
         {
-            // Lógica para mudar a descrição de um servidor
+            // Lógica para mudar a descrição de um servidor (Não vai funcionar)
 
             if (sistema->servidorExiste(comandos[1]))
             {
@@ -149,7 +149,7 @@ int main()
                 if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
                 {
                     sistema->retornaServidor(comandos[1])->setDescricao(comandos[2]);
-                    cout << "Descrição do servidor '"<< comandos[1] << "' modificada!" << endl;
+                    cout << "Descrição do servidor '" << comandos[1] << "' modificada!" << endl;
                 }
                 else
                 {
@@ -159,6 +159,67 @@ int main()
             else
             {
                 cout << "Servidor '" << comandos[1] << "' não existe" << endl;
+            }
+        }
+        else if (comandos[0] == "set-server-invite-code")
+        {
+            // Lógica para Setar código de convite para o servidor
+
+            if (sistema->servidorExiste(comandos[1]))
+            {
+
+                if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
+                {
+                    if (comandos[2] != "")
+                    {
+                        sistema->retornaServidor(comandos[1])->setCodigoConvite(comandos[2]);
+
+                        cout << "Código de convite do servidor '" << comandos[1] << "' modificado!" << endl;
+                    }
+                    else
+                    {
+                        sistema->retornaServidor(comandos[1])->setCodigoConvite("");
+
+                        cout << "Código de convite do servidor '" << comandos[1] << "' removido!" << endl;
+                    }
+                }
+                else
+                {
+                    cout << "Você não pode alterar o código de convite do servidor que não foi criado por você" << endl;
+                }
+            }
+            else
+            {
+                cout << "Servidor '" << comandos[1] << "' não existe" << endl;
+            }
+        }
+        else if (comandos[0] == "list-servers")
+        {
+            // Lógica para listar os servidor
+
+            sistema->listarServidores();
+        }
+        else if (comandos[0] == "remove-server")
+        {
+
+            // Lógica para remover um servidor
+
+            if (sistema->servidorExiste(comandos[1]))
+            {
+
+                if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
+                {
+                    sistema->removerServidor(comandos[1]);
+                    cout << "Servidor '" << comandos[1] << "' removido" << endl;
+                }
+                else
+                {
+                    cout << "Você não é o dono do servidor '" << comandos[1] << "'" << endl;
+                }
+            }
+            else
+            {
+                cout << "Servidor '" << comandos[1] << "'não encontrado" << endl;
             }
         }
         else

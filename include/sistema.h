@@ -127,6 +127,26 @@ public:
 
     }
 
+    void listarServidores(){
+
+        for (Servidor *server : servidores)
+        {
+            cout << server->nome << endl;
+        }
+
+    }
+
+    void removerServidor(string nome) {
+    for (auto it = servidores.begin(); it != servidores.end(); ++it) {
+        if ((*it)->nome == nome) {
+            delete *it;  
+            servidores.erase(it);
+            break;  
+        }
+    }
+
+    
+}
 
 };
 
