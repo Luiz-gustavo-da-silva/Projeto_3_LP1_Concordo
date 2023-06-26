@@ -13,6 +13,10 @@ public:
     string nome;
     string email;
     string senha;
+
+    int returnaId(){
+        return this->id;
+    }
 };
 
 #endif

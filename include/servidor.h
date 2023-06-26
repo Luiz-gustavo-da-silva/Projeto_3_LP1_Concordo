@@ -12,7 +12,7 @@ public:
     int usuarioDonoId;
     string nome;
     string descricao;
-    string codigoConvite;
+    string codigoConvite = "";
     vector<Canal *> canais;
     vector<int> participantesIDs;
 
@@ -33,22 +33,32 @@ public:
         this->descricao = descricao;
     }
 
-    void setCodigoConvite(string codigoConvite){
+    void setCodigoConvite(string codigoConvite)
+    {
         this->codigoConvite = codigoConvite;
     }
 
-    void adicionarUsuarioNoServidor(int id)
+    bool verificaCodigoConvite(string codigoConvite)
+    {
+        if (codigoConvite == this->codigoConvite)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void adicionarUsuario(int id)
     {
 
         participantesIDs.push_back(id);
     }
 
-    void listaUsuariosServidor()
+    vector <int> listaUsuariosServidor()
     {
-        for (int id : participantesIDs)
-        {
-            std::cout << "ID do usuário: " << id << std::endl;
-        }
+        return participantesIDs;
     }
 };
 

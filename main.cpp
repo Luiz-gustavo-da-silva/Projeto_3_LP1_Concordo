@@ -14,18 +14,32 @@ vector<string> quebrarString(const string &linhaComando)
     vector<string> comandos;
 
     size_t pos1 = linhaComando.find(' ');
-    size_t pos2 = linhaComando.find(' ', pos1 + 1);
-    size_t pos3 = linhaComando.find(' ', pos2 + 1);
-
     string comando = linhaComando.substr(0, pos1);
-    string info1 = linhaComando.substr(pos1 + 1, pos2 - pos1 - 1);
-    string info2 = linhaComando.substr(pos2 + 1, pos3 - pos2 - 1);
-    string info3 = linhaComando.substr(pos3 + 1);
-
     comandos.push_back(comando);
-    comandos.push_back(info1);
-    comandos.push_back(info2);
-    comandos.push_back(info3);
+
+    if (comando == "set-server-desc")
+    {
+        size_t pos2 = linhaComando.find(' ', pos1 + 1);
+
+        string info1 = linhaComando.substr(pos1 + 1, pos2 - pos1 - 1);
+        string info2 = linhaComando.substr(pos2 + 1, linhaComando.length() - 1);
+
+        comandos.push_back(info1);
+        comandos.push_back(info2);
+    }
+    else
+    {
+        size_t pos2 = linhaComando.find(' ', pos1 + 1);
+        size_t pos3 = linhaComando.find(' ', pos2 + 1);
+
+        string info1 = linhaComando.substr(pos1 + 1, pos2 - pos1 - 1);
+        string info2 = linhaComando.substr(pos2 + 1, pos3 - pos2 - 1);
+        string info3 = linhaComando.substr(pos3 + 1);
+
+        comandos.push_back(info1);
+        comandos.push_back(info2);
+        comandos.push_back(info3);
+    }
 
     return comandos;
 }
@@ -141,7 +155,7 @@ int main()
         }
         else if (comandos[0] == "set-server-desc")
         {
-            // Lógica para mudar a descrição de um servidor (Não vai funcionar)
+            // Lógica para mudar a descrição de um servidor
 
             if (sistema->servidorExiste(comandos[1]))
             {
@@ -220,6 +234,54 @@ int main()
             else
             {
                 cout << "Servidor '" << comandos[1] << "'não encontrado" << endl;
+            }
+        }
+        else if (comandos[0] == "enter-server")
+        {
+
+            // Lógica para entrar em um servidor
+
+            if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 1)
+            {
+                cout << "Entrou no servidor com sucesso." << endl;
+            }
+            else if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 2)
+            {
+                cout << "Código digitado está errado." << endl;
+            }
+            else
+            {
+                cout << "Não existe um servidor com esse nome." << endl;
+            }
+        }
+        else if (comandos[0] == "leave-server")
+        {
+
+            // Lógica para sair de uma servidor
+
+            if (sistema->verificaUsuarioNoServidor())
+            {
+                sistema->sairServidor();
+                cout << "Saindo do servidor '" << sistema->retornaServidorAtual()->nome << "'" << endl;
+            }
+            else
+            {
+                cout << "Você não está visualizando nenhum servidor" << endl;
+            }
+        }
+        else if (comandos[0] == "list-participants")
+        {
+
+            // Lógica para listar participantes de um servidor
+
+            if (sistema->verificaUsuarioNoServidor())
+            {
+
+                sistema->listaUsuariosServidor();
+            }
+            else
+            {
+                cout << "O usuario não está em nenhum servidor, por favor entre em um servidor" << endl;
             }
         }
         else

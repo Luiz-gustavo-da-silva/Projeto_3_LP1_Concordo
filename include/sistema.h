@@ -14,12 +14,11 @@ using namespace std;
 class Sistema
 {
 public:
-
     // fazer o encapsulamento desses dados!!!
     vector<Usuario *> usuarios;
     vector<Servidor *> servidores;
     Usuario *usuarioAtual = nullptr;
-    Servidor *servidorAtual;
+    Servidor *servidorAtual = nullptr;
     Canal *canalAtual;
 
     ~Sistema()
@@ -42,19 +41,6 @@ public:
     void cadastrarUsuario(Usuario *usuario)
     {
         usuarios.push_back(usuario);
-    }
-
-    vector<int> retornaIdsUsuarios()
-    {
-
-        vector<int> ids;
-
-        for (const Usuario *usuario : usuarios)
-        {
-            ids.push_back(usuario->id);
-        }
-
-        return ids;
     }
 
     bool usuarioExiste(string email)
@@ -115,7 +101,8 @@ public:
         return false;
     }
 
-    Servidor * retornaServidor(string nome){
+    Servidor *retornaServidor(string nome)
+    {
 
         for (Servidor *server : servidores)
         {
@@ -124,30 +111,115 @@ public:
                 return server;
             }
         }
-
     }
 
-    void listarServidores(){
+    void listarServidores()
+    {
 
         for (Servidor *server : servidores)
         {
             cout << server->nome << endl;
         }
-
     }
 
-    void removerServidor(string nome) {
-    for (auto it = servidores.begin(); it != servidores.end(); ++it) {
-        if ((*it)->nome == nome) {
-            delete *it;  
-            servidores.erase(it);
-            break;  
+    void removerServidor(string nome)
+    {
+        for (auto it = servidores.begin(); it != servidores.end(); ++it)
+        {
+            if ((*it)->nome == nome)
+            {
+                delete *it;
+                servidores.erase(it);
+                break;
+            }
         }
     }
 
-    
-}
+    Usuario *retornaUsuario(string email)
+    {
 
+        for (Usuario *usuario : usuarios)
+        {
+            if (usuario->email == email)
+            {
+                return usuario;
+            }
+        }
+    }
+
+    bool login(string email, string senha)
+    {
+        for (Usuario *usuario : usuarios)
+        {
+            if (usuario->email == email && usuario->senha == senha)
+            {
+                usuarioAtual = usuario;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int adicionarUsuarioNoServidor(string nome, string codigoConvite)
+    {
+
+        for (Servidor *servidor : servidores)
+        {
+            if (servidor->nome == nome)
+            {
+
+                if (servidor->verificaCodigoConvite(codigoConvite))
+                {
+
+                    servidor->adicionarUsuario(usuarioAtual->id);
+                    servidorAtual = servidor;
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+        }
+
+        return 3;
+    }
+
+    bool verificaUsuarioNoServidor()
+    {
+        if (servidorAtual == nullptr)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    void sairServidor()
+    {
+        usuarioAtual = nullptr;
+    }
+
+    Servidor *retornaServidorAtual()
+    {
+        return this->servidorAtual;
+    }
+
+    void listaUsuariosServidor()
+    {
+
+        vector<int> ids = servidorAtual->listaUsuariosServidor();
+
+        for (int i = 0; i < ids.size(); i++)
+        {
+            for (const Usuario *usuario : usuarios)
+            {
+                if(usuario->id == ids[i]){
+                    cout << usuario->nome << endl;
+                }
+                
+            }
+        }
+    }
 };
 
 #endif
