@@ -46,7 +46,7 @@ vector<string> quebrarString(const string &linhaComando)
         comandos.push_back(servidor);
         comandos.push_back(senha);
 
-        //cout << comandos[0] << comandos[1] << comandos[2] << endl;
+        // cout << comandos[0] << comandos[1] << comandos[2] << endl;
     }
     else
     {
@@ -196,7 +196,7 @@ int main()
                 {
                     sistema->retornaServidor(comandos[1])->setDescricao(comandos[2]);
                     cout << "Descrição do servidor '" << comandos[1] << "' modificada!" << endl;
-                    //cout << sistema->retornaServidor(comandos[1])->descricao << endl;
+                    // cout << sistema->retornaServidor(comandos[1])->descricao << endl;
                 }
                 else
                 {
@@ -222,7 +222,7 @@ int main()
                         sistema->retornaServidor(comandos[1])->setCodigoConvite(comandos[2]);
 
                         cout << "Código de convite do servidor '" << comandos[1] << "' modificado!" << endl;
-                        //cout << sistema->retornaServidor(comandos[1])->codigoConvite << endl;
+                        // cout << sistema->retornaServidor(comandos[1])->codigoConvite << endl;
                     }
                     else
                     {
@@ -251,25 +251,30 @@ int main()
         {
 
             // Lógica para remover um servidor
-
-            if (sistema->servidorExiste(comandos[1]))
+            if (sistema->verificaUsuarioLogado())
             {
-
-                if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
+                if (sistema->servidorExiste(comandos[1]))
                 {
-                    sistema->removerServidor(comandos[1]);
-                    sistema->sairServidor();
-                    cout << "Servidor '" << comandos[1] << "' removido" << endl;
-                    
+
+                    if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
+                    {
+                        sistema->removerServidor(comandos[1]);
+                        sistema->sairServidor();
+                        cout << "Servidor '" << comandos[1] << "' removido" << endl;
+                    }
+                    else
+                    {
+                        cout << "Você não é o dono do servidor '" << comandos[1] << "'" << endl;
+                    }
                 }
                 else
                 {
-                    cout << "Você não é o dono do servidor '" << comandos[1] << "'" << endl;
+                    cout << "Servidor '" << comandos[1] << "'não encontrado" << endl;
                 }
             }
             else
             {
-                cout << "Servidor '" << comandos[1] << "'não encontrado" << endl;
+                cout << "É necessário estar logado para remover um servidor" << endl;
             }
         }
         else if (comandos[0] == "enter-server")
@@ -280,9 +285,8 @@ int main()
             if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 1)
             {
                 cout << "Entrou no servidor com sucesso." << endl;
-                //cout << sistema->servidorAtual->nome << endl;
-                //cout << sistema->servidorAtual->participantesIDs[0] << endl;
-                
+                // cout << sistema->servidorAtual->nome << endl;
+                // cout << sistema->servidorAtual->participantesIDs[0] << endl;
             }
             else if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 2)
             {
@@ -292,7 +296,6 @@ int main()
             {
                 cout << "Não existe um servidor com esse nome." << endl;
             }
-
         }
         else if (comandos[0] == "leave-server")
         {
@@ -303,7 +306,7 @@ int main()
             {
                 cout << "Saindo do servidor '" << sistema->retornaServidorAtual()->nome << "'" << endl;
                 sistema->sairServidor();
-                //cout << sistema->retornaServidorAtual() << endl;
+                // cout << sistema->retornaServidorAtual() << endl;
             }
             else
             {

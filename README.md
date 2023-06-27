@@ -19,7 +19,7 @@ https://drive.google.com/file/d/1UCV0XgL8M02OhzdexoILAv5XrfOFrFHB/view?usp=shari
 ### Compilação:
 
 - Clone o repositório "git clone https://github.com/Luiz-gustavo-da-silva/Projeto_3_LP1_Concordo.git"
-- Navegue até ele cd Projeto_3_LP1_Concordo
+- Navegue até ele "cd Projeto_3_LP1_Concordo"
 - Crie uma pasta build na raiz do projeto
 - Navegue até ela
 - Execute o camando cmake ..
