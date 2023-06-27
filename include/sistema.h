@@ -1,3 +1,8 @@
+/**
+ * @file sistema.h
+ * @brief Declaração da classe Sistema.h.
+ */
+
 #ifndef SISTEMA_H
 #define SISTEMA_H
 
@@ -11,211 +16,146 @@
 
 using namespace std;
 
+/**
+ * @brief Classe que representa o sistema.
+ */
 class Sistema
 {
 public:
-    // fazer o encapsulamento desses dados!!!
+    /**
+     * @brief Vetor de ponteiros para objetos da classe Usuario.
+     */
     vector<Usuario *> usuarios;
+
+    /**
+     * @brief Vetor de ponteiros para objetos da classe Servidor.
+     */
     vector<Servidor *> servidores;
+
+    /**
+     * @brief Ponteiro para o objeto Usuario atualmente logado.
+     */
     Usuario *usuarioAtual = nullptr;
+
+    /**
+     * @brief Ponteiro para o objeto Servidor atualmente selecionado.
+     */
     Servidor *servidorAtual = nullptr;
+
+    /**
+     * @brief Ponteiro para o objeto Canal atualmente selecionado.
+     */
     Canal *canalAtual;
 
-    ~Sistema()
-    {
-        // Desalocar objetos do vetor
+    /**
+     * @brief Destrutor da classe Sistema.
+     */
+    ~Sistema();
 
-        for (auto objeto : usuarios)
-        {
-            delete objeto;
-        }
+    /**
+     * @brief Cadastra um objeto Usuario no sistema.
+     * @param usuario Ponteiro para o objeto Usuario a ser cadastrado.
+     */
+    void cadastrarUsuario(Usuario *usuario);
 
-        for (auto objeto : servidores)
-        {
-            delete objeto;
-        }
+    /**
+     * @brief Verifica se um Usuario com o email fornecido já existe no sistema.
+     * @param email Email do Usuario a ser verificado.
+     * @return true se o Usuario existe, false caso contrário.
+     */
+    bool usuarioExiste(string email);
 
-        // usuarios.clear();
-    }
+    /**
+     * @brief Realiza o login de um Usuario no sistema.
+     * @param email Email do Usuario a ser logado.
+     * @param senha Senha do Usuario a ser logado.
+     * @return true se o login foi bem-sucedido, false caso contrário.
+     */
+    bool login(string email, string senha);
 
-    void cadastrarUsuario(Usuario *usuario)
-    {
-        usuarios.push_back(usuario);
-    }
+    /**
+     * @brief Realiza o logout do Usuario atualmente logado.
+     */
+    void logout();
 
-    bool usuarioExiste(string email)
-    {
-        for (const Usuario *usuario : usuarios)
-        {
-            cout << usuario->nome << endl;
-            /*if (usuario->email == email)
-            {
-                return true;
-            }*/
-        }
+    /**
+     * @brief Verifica se há um Usuario logado no sistema.
+     * @return true se houver um Usuario logado, false caso contrário.
+     */
+    bool verificaUsuarioLogado();
 
-        return false;
-    }
+    /**
+     * @brief Cria um objeto Servidor e o adiciona ao sistema.
+     * @param servidor Ponteiro para o objeto Servidor a ser criado.
+     */
+    void criarServidor(Servidor *servidor);
 
-    bool login(string email, string senha)
-    {
-        for (Usuario *usuario : usuarios)
-        {
-            if (usuario->email == email && usuario->senha == senha)
-            {
-                usuarioAtual = usuario;
-                return true;
-            }
-        }
-        return false;
-    }
+    /**
+     * @brief Verifica se um Servidor com o nome fornecido já existe no sistema.
+     * @param nome Nome do Servidor a ser verificado.
+     * @return true se o Servidor existe, false caso contrário.
+     */
+    bool servidorExiste(string nome);
 
-    void logout()
-    {
-        usuarioAtual = nullptr;
-    }
+    /**
+     * @brief Retorna um ponteiro para o Servidor com o nome fornecido.
+     * @param nome Nome do Servidor a ser retornado.
+     * @return Ponteiro para o Servidor com o nome fornecido ou nullptr se não encontrado.
+     */
+    Servidor *retornaServidor(string nome);
 
-    bool verificaUsuarioLogado()
-    {
-        if (usuarioAtual == nullptr)
-        {
-            return false;
-        }
-        return true;
-    }
+    /**
+     * @brief Lista os nomes de todos os servidores do sistema.
+     */
+    void listarServidores();
 
-    void criarServidor(Servidor *servidor)
-    {
-        servidores.push_back(servidor);
-    }
+    /**
+     * @brief Remove um Servidor com o nome fornecido do sistema.
+     * @param nome Nome do Servidor a ser removido.
+     */
+    void removerServidor(string nome);
 
-    bool servidorExiste(string nome)
-    {
-        for (const Servidor *server : servidores)
-        {
-            if (server->nome == nome)
-            {
-                return true;
-            }
-        }
+    /**
+     * @brief Retorna um ponteiro para o Usuario com o email fornecido.
+     * @param email Email do Usuario a ser retornado.
+     * @return Ponteiro para o Usuario com o email fornecido ou nullptr se não encontrado.
+     */
+    Usuario *retornaUsuario(string email);
 
-        return false;
-    }
+    /**
+     * @brief Adiciona o Usuario atualmente logado a um Servidor com o nome e código de convite fornecidos.
+     * @param nome Nome do Servidor ao qual o Usuario será adicionado.
+     * @param codigoConvite Código de convite do Servidor ao qual o Usuario será adicionado.
+     * @return 1 se o Usuario foi adicionado com sucesso, 2 se o código de convite é inválido e 3 se o Servidor não foi encontrado.
+     */
+    int adicionarUsuarioNoServidor(string nome, string codigoConvite);
 
-    Servidor *retornaServidor(string nome)
-    {
+    /**
+     * @brief Verifica se o Usuario está associado a um Servidor.
+     * @return true se o Usuario está associado a um Servidor, false caso contrário.
+     */
+    bool verificaUsuarioNoServidor();
 
-        for (Servidor *server : servidores)
-        {
-            if (server->nome == nome)
-            {
-                return server;
-            }
-        }
-        return nullptr;
-    }
+    /**
+     * @brief Remove a associação do Usuario atual com o Servidor.
+     */
+    void sairServidor();
 
-    void listarServidores()
-    {
+    /**
+     * @brief Retorna um ponteiro para o Servidor atualmente selecionado.
+     * @return Ponteiro para o Servidor atualmente selecionado.
+     */
+    Servidor *retornaServidorAtual();
 
-        for (Servidor *server : servidores)
-        {
-            cout << server->nome << endl;
-        }
-    }
+    /**
+     * @brief Lista os nomes dos Usuarios associados ao Servidor atualmente selecionado.
+     */
+    void listaUsuariosServidor();
 
-    void removerServidor(string nome)
-    {
-        for (auto it = servidores.begin(); it != servidores.end(); ++it)
-        {
-            if ((*it)->nome == nome)
-            {
-                delete *it;
-                servidores.erase(it);
-                break;
-            }
-        }
-    }
-
-    Usuario *retornaUsuario(string email)
-    {
-
-        for (Usuario *usuario : usuarios)
-        {
-            if (usuario->email == email)
-            {
-                return usuario;
-            }
-        }
-    }
-
-    int adicionarUsuarioNoServidor(string nome, string codigoConvite)
-    {
-
-        for (Servidor *servidor : servidores)
-        {
-            if (servidor->nome == nome)
-            {
-
-                if (servidor->verificaCodigoConvite(codigoConvite))
-                {
-
-                    servidor->adicionarUsuario(usuarioAtual->id);
-                    servidorAtual = servidor;
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
-            }
-        }
-
-        return 3;
-    }
-
-    bool verificaUsuarioNoServidor()
-    {
-        if (servidorAtual == nullptr)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    void sairServidor()
-    {
-        usuarioAtual = nullptr;
-    }
-
-    Servidor *retornaServidorAtual()
-    {
-        return this->servidorAtual;
-    }
-
-    void listaUsuariosServidor()
-    {
-
-        vector<int> ids = servidorAtual->listaUsuariosServidor();
-
-        for (int i = 0; i < ids.size(); i++)
-        {
-            for (const Usuario *usuario : usuarios)
-            {
-                if (usuario->id == ids[i])
-                {
-                    cout << usuario->nome << endl;
-                }
-            }
-        }
-    }
-    void listarUsuarios()
-    {
-        for (const Usuario *usuario : usuarios)
-        {
-            cout << usuario->nome << endl;
-        }
-    }
+    /**
+     * @brief Lista os nomes de todos os Usuarios do sistema.
+     */
+    void listarUsuarios();
 };
 
 #endif

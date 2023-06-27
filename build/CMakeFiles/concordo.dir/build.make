@@ -83,17 +83,65 @@ CMakeFiles/concordo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/main.cpp" -o CMakeFiles/concordo.dir/main.cpp.s
 
+CMakeFiles/concordo.dir/src/sistema.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/sistema.cpp.o: ../src/sistema.cpp
+CMakeFiles/concordo.dir/src/sistema.cpp.o: CMakeFiles/concordo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/concordo.dir/src/sistema.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/concordo.dir/src/sistema.cpp.o -MF CMakeFiles/concordo.dir/src/sistema.cpp.o.d -o CMakeFiles/concordo.dir/src/sistema.cpp.o -c "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/sistema.cpp"
+
+CMakeFiles/concordo.dir/src/sistema.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/sistema.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/sistema.cpp" > CMakeFiles/concordo.dir/src/sistema.cpp.i
+
+CMakeFiles/concordo.dir/src/sistema.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/sistema.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/sistema.cpp" -o CMakeFiles/concordo.dir/src/sistema.cpp.s
+
+CMakeFiles/concordo.dir/src/servidor.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/servidor.cpp.o: ../src/servidor.cpp
+CMakeFiles/concordo.dir/src/servidor.cpp.o: CMakeFiles/concordo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/concordo.dir/src/servidor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/concordo.dir/src/servidor.cpp.o -MF CMakeFiles/concordo.dir/src/servidor.cpp.o.d -o CMakeFiles/concordo.dir/src/servidor.cpp.o -c "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/servidor.cpp"
+
+CMakeFiles/concordo.dir/src/servidor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/servidor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/servidor.cpp" > CMakeFiles/concordo.dir/src/servidor.cpp.i
+
+CMakeFiles/concordo.dir/src/servidor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/servidor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/servidor.cpp" -o CMakeFiles/concordo.dir/src/servidor.cpp.s
+
+CMakeFiles/concordo.dir/src/usuario.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp
+CMakeFiles/concordo.dir/src/usuario.cpp.o: CMakeFiles/concordo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/concordo.dir/src/usuario.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/concordo.dir/src/usuario.cpp.o -MF CMakeFiles/concordo.dir/src/usuario.cpp.o.d -o CMakeFiles/concordo.dir/src/usuario.cpp.o -c "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/usuario.cpp"
+
+CMakeFiles/concordo.dir/src/usuario.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/usuario.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/usuario.cpp" > CMakeFiles/concordo.dir/src/usuario.cpp.i
+
+CMakeFiles/concordo.dir/src/usuario.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/usuario.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/src/usuario.cpp" -o CMakeFiles/concordo.dir/src/usuario.cpp.s
+
 # Object files for target concordo
 concordo_OBJECTS = \
-"CMakeFiles/concordo.dir/main.cpp.o"
+"CMakeFiles/concordo.dir/main.cpp.o" \
+"CMakeFiles/concordo.dir/src/sistema.cpp.o" \
+"CMakeFiles/concordo.dir/src/servidor.cpp.o" \
+"CMakeFiles/concordo.dir/src/usuario.cpp.o"
 
 # External object files for target concordo
 concordo_EXTERNAL_OBJECTS =
 
 concordo: CMakeFiles/concordo.dir/main.cpp.o
+concordo: CMakeFiles/concordo.dir/src/sistema.cpp.o
+concordo: CMakeFiles/concordo.dir/src/servidor.cpp.o
+concordo: CMakeFiles/concordo.dir/src/usuario.cpp.o
 concordo: CMakeFiles/concordo.dir/build.make
 concordo: CMakeFiles/concordo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable concordo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/luiz/Área de Trabalho/Projeto_3_LP1_Concordo/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable concordo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/concordo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

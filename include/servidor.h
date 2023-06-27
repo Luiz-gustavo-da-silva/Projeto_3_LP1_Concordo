@@ -1,64 +1,92 @@
+/**
+ * @file servidor.h
+ * @brief Declaração da classe Servidor.h
+ */
+
 #ifndef SERVIDOR_H
 #define SERVIDOR_H
 
 #include <iostream>
 #include <string>
+
 #include <vector>
 #include "canal.h"
 
+using namespace std;
+
+/**
+ * @brief Classe que representa um servidor.
+ */
 class Servidor
 {
 public:
+    /**
+     * @brief ID do usuário dono do servidor.
+     */
     int usuarioDonoId;
+
+    /**
+     * @brief Nome do servidor.
+     */
     string nome;
+
+    /**
+     * @brief Descrição do servidor.
+     */
     string descricao;
+
+    /**
+     * @brief Código de convite do servidor.
+     */
     string codigoConvite = "";
+
+    /**
+     * @brief Vetor de ponteiros para os canais do servidor.
+     */
     vector<Canal *> canais;
+
+    /**
+     * @brief Vetor de IDs dos participantes do servidor.
+     */
     vector<int> participantesIDs;
 
-    bool verificaUsuarioDono(int id)
-    {
-        if (usuarioDonoId == id)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    /**
+     * @brief Verifica se o usuário é o dono do servidor.
+     * @param id ID do usuário a ser verificado.
+     * @return true se o usuário é o dono do servidor, false caso contrário.
+     */
+    bool verificaUsuarioDono(int id);
 
-    void setDescricao(string descricao)
-    {
-        this->descricao = descricao;
-    }
+    /**
+     * @brief Define a descrição do servidor.
+     * @param descricao Descrição do servidor.
+     */
+    void setDescricao(string descricao);
 
-    void setCodigoConvite(string codigoConvite)
-    {
-        this->codigoConvite = codigoConvite;
-    }
+    /**
+     * @brief Define o código de convite do servidor.
+     * @param codigoConvite Código de convite do servidor.
+     */
+    void setCodigoConvite(string codigoConvite);
 
-    bool verificaCodigoConvite(string codigoConvite)
-    {
-        if (codigoConvite == this->codigoConvite)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    /**
+     * @brief Verifica se o código de convite fornecido corresponde ao do servidor.
+     * @param codigoConvite Código de convite a ser verificado.
+     * @return true se o código de convite é válido, false caso contrário.
+     */
+    bool verificaCodigoConvite(string codigoConvite);
 
-    void adicionarUsuario(int id)
-    {
-        participantesIDs.push_back(id);
-    }
+    /**
+     * @brief Adiciona um usuário ao servidor.
+     * @param id ID do usuário a ser adicionado.
+     */
+    void adicionarUsuario(int id);
 
-    vector <int> listaUsuariosServidor()
-    {
-        return participantesIDs;
-    }
+    /**
+     * @brief Retorna um vetor com os IDs dos participantes do servidor.
+     * @return Vetor de IDs dos participantes do servidor.
+     */
+    vector<int> listaUsuariosServidor();
 };
 
 #endif

@@ -153,6 +153,78 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/servidor.o: src/servidor.cpp.o
+.PHONY : src/servidor.o
+
+# target to build an object file
+src/servidor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.o
+.PHONY : src/servidor.cpp.o
+
+src/servidor.i: src/servidor.cpp.i
+.PHONY : src/servidor.i
+
+# target to preprocess a source file
+src/servidor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.i
+.PHONY : src/servidor.cpp.i
+
+src/servidor.s: src/servidor.cpp.s
+.PHONY : src/servidor.s
+
+# target to generate assembly for a file
+src/servidor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.s
+.PHONY : src/servidor.cpp.s
+
+src/sistema.o: src/sistema.cpp.o
+.PHONY : src/sistema.o
+
+# target to build an object file
+src/sistema.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.o
+.PHONY : src/sistema.cpp.o
+
+src/sistema.i: src/sistema.cpp.i
+.PHONY : src/sistema.i
+
+# target to preprocess a source file
+src/sistema.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.i
+.PHONY : src/sistema.cpp.i
+
+src/sistema.s: src/sistema.cpp.s
+.PHONY : src/sistema.s
+
+# target to generate assembly for a file
+src/sistema.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.s
+.PHONY : src/sistema.cpp.s
+
+src/usuario.o: src/usuario.cpp.o
+.PHONY : src/usuario.o
+
+# target to build an object file
+src/usuario.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.o
+.PHONY : src/usuario.cpp.o
+
+src/usuario.i: src/usuario.cpp.i
+.PHONY : src/usuario.i
+
+# target to preprocess a source file
+src/usuario.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.i
+.PHONY : src/usuario.cpp.i
+
+src/usuario.s: src/usuario.cpp.s
+.PHONY : src/usuario.s
+
+# target to generate assembly for a file
+src/usuario.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.s
+.PHONY : src/usuario.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +237,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/servidor.o"
+	@echo "... src/servidor.i"
+	@echo "... src/servidor.s"
+	@echo "... src/sistema.o"
+	@echo "... src/sistema.i"
+	@echo "... src/sistema.s"
+	@echo "... src/usuario.o"
+	@echo "... src/usuario.i"
+	@echo "... src/usuario.s"
 .PHONY : help
 
 

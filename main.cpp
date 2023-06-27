@@ -9,6 +9,7 @@ using namespace std;
 #include "./include/sistema.h"
 #include "./include/servidor.h"
 
+// função para separar as informações do string de entrada
 vector<string> quebrarString(const string &linhaComando)
 {
     vector<string> comandos;
@@ -19,6 +20,8 @@ vector<string> quebrarString(const string &linhaComando)
 
     if (comando == "set-server-desc")
     {
+        // linha com 3 comandos sendo o último com espaços
+
         size_t pos2 = linhaComando.find(' ', pos1 + 1);
 
         string info1 = linhaComando.substr(pos1 + 1, pos2 - pos1 - 1);
@@ -27,8 +30,28 @@ vector<string> quebrarString(const string &linhaComando)
         comandos.push_back(info1);
         comandos.push_back(info2);
     }
+    else if (comando == "set-server-invite-code" || comando == "enter-server")
+    {
+        // linha com 2 ou 3 comandos
+
+        istringstream iss(linhaComando);
+        string comando, servidor, senha;
+        iss >> comando >> servidor >> senha;
+
+        if (senha.empty())
+        {
+            senha = ""; // Define senha como string vazia quando não for digitada
+        }
+
+        comandos.push_back(servidor);
+        comandos.push_back(senha);
+
+        //cout << comandos[0] << comandos[1] << comandos[2] << endl;
+    }
     else
     {
+        // linha com 4 ou 1 comandos
+
         size_t pos2 = linhaComando.find(' ', pos1 + 1);
         size_t pos3 = linhaComando.find(' ', pos2 + 1);
 
@@ -48,9 +71,8 @@ int main()
 {
 
     string linhaComando;
-    
+
     Sistema *sistema = new Sistema();
-    Servidor *servidor;
     vector<string> comandos;
     int id = 1;
 
@@ -60,7 +82,7 @@ int main()
 
         comandos = quebrarString(linhaComando);
 
-        //cout << "comando: " << comandos[0] << "email: " << comandos[1] << "senha: " << comandos[2] << "nome: "<< comandos[3] << endl;
+        // cout << "comando: " << comandos[0] << "email: " << comandos[1] << "senha: " << comandos[2] << "nome: "<< comandos[3] << endl;
 
         if (comandos.size() == 0)
         {
@@ -86,21 +108,18 @@ int main()
                 novoUsuario->nome = comandos[3];
 
                 sistema->cadastrarUsuario(novoUsuario);
-                
+
                 id++;
 
                 cout << "Usuário criado" << endl;
 
-                sistema->listarUsuarios();
+                // sistema->listarUsuarios();
             }
-
-            
         }
         else if (comandos[0] == "login")
         {
             // Lógica para fazer login
-            
-            
+
             if (sistema->usuarioExiste(comandos[1]))
             {
                 if (sistema->login(comandos[1], comandos[2]))
@@ -117,7 +136,7 @@ int main()
                 cout << "Usuário não existente por favor crie um login na nossa aplicação!" << endl;
             }
 
-            // cout << comandos[0] << comandos[1] << comandos[2] << endl;
+            // cout << sistema->usuarioAtual->nome << endl;
         }
         else if (comandos[0] == "quit")
         {
@@ -147,11 +166,14 @@ int main()
                 if (!sistema->servidorExiste(comandos[1]))
                 {
 
+                    auto servidor = new Servidor();
                     servidor->nome = comandos[1];
                     servidor->usuarioDonoId = sistema->usuarioAtual->id;
                     sistema->criarServidor(servidor);
 
                     cout << "Servidor criado" << endl;
+
+                    // sistema->listarServidores();
                 }
                 else
                 {
@@ -174,6 +196,7 @@ int main()
                 {
                     sistema->retornaServidor(comandos[1])->setDescricao(comandos[2]);
                     cout << "Descrição do servidor '" << comandos[1] << "' modificada!" << endl;
+                    //cout << sistema->retornaServidor(comandos[1])->descricao << endl;
                 }
                 else
                 {
@@ -199,6 +222,7 @@ int main()
                         sistema->retornaServidor(comandos[1])->setCodigoConvite(comandos[2]);
 
                         cout << "Código de convite do servidor '" << comandos[1] << "' modificado!" << endl;
+                        //cout << sistema->retornaServidor(comandos[1])->codigoConvite << endl;
                     }
                     else
                     {
@@ -234,7 +258,9 @@ int main()
                 if (sistema->retornaServidor(comandos[1])->verificaUsuarioDono(sistema->usuarioAtual->id))
                 {
                     sistema->removerServidor(comandos[1]);
+                    sistema->sairServidor();
                     cout << "Servidor '" << comandos[1] << "' removido" << endl;
+                    
                 }
                 else
                 {
@@ -254,6 +280,9 @@ int main()
             if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 1)
             {
                 cout << "Entrou no servidor com sucesso." << endl;
+                //cout << sistema->servidorAtual->nome << endl;
+                //cout << sistema->servidorAtual->participantesIDs[0] << endl;
+                
             }
             else if (sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]) == 2)
             {
@@ -263,6 +292,7 @@ int main()
             {
                 cout << "Não existe um servidor com esse nome." << endl;
             }
+
         }
         else if (comandos[0] == "leave-server")
         {
@@ -271,8 +301,9 @@ int main()
 
             if (sistema->verificaUsuarioNoServidor())
             {
-                sistema->sairServidor();
                 cout << "Saindo do servidor '" << sistema->retornaServidorAtual()->nome << "'" << endl;
+                sistema->sairServidor();
+                //cout << sistema->retornaServidorAtual() << endl;
             }
             else
             {
@@ -302,9 +333,7 @@ int main()
         comandos.clear();
     }
 
-    /*delete novoUsuario;
-    delete servidor;
-    delete sistema;*/
+    delete sistema;
 
     return 0;
 }
