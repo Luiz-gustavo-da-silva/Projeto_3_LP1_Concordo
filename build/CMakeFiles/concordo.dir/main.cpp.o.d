@@ -151,7 +151,13 @@ CMakeFiles/concordo.dir/main.cpp.o: \
  /usr/include/c++/11/bits/sstream.tcc \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/usuario.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/sistema.h \
+ /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/limits /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/canal.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/usuario.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/servidor.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/canalTexto.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/mensagem.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/canalVoz.h \
  /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/./include/servidor.h

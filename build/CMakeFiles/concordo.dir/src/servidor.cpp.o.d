@@ -150,4 +150,7 @@ CMakeFiles/concordo.dir/src/servidor.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canal.h
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canal.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canalTexto.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/mensagem.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canalVoz.h

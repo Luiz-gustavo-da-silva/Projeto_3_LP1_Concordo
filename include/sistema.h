@@ -9,10 +9,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <chrono>
+#include <ctime>
 
 #include "canal.h"
 #include "usuario.h"
 #include "servidor.h"
+#include "mensagem.h"
 
 using namespace std;
 
@@ -156,6 +159,37 @@ public:
      * @brief Lista os nomes de todos os Usuarios do sistema.
      */
     void listarUsuarios();
+
+    /**
+     * @brief Entra em um canal com o nome fornecido no Servidor atualmente selecionado.
+     * @param nome Nome do canal a ser acessado.
+     * @return true se a entrada no canal foi bem-sucedida, false caso contrário.
+     */
+    bool entrarCanal(string nome);
+
+    /**
+     * @brief Sai do canal atualmente selecionado.
+     * @return true se a saída do canal foi bem-sucedida, false caso contrário.
+     */
+    bool sairCanal();
+
+    /**
+     * @brief Verifica se o Usuario está associado a um canal.
+     * @return true se o Usuario está associado a um canal, false caso contrário.
+     */
+    bool verificaUsuarioNoCanal();
+
+    /**
+     * @brief Envia uma mensagem para o canal atualmente selecionado.
+     * @param mensagem Conteúdo da mensagem a ser enviada.
+     */
+    void enviarMensagem(string mensagem);
+
+    /**
+     * @brief Exibe as mensagens do canal atualmente selecionado.
+     * Se não houver nenhuma mensagem para exibir, exibe uma mensagem de aviso.
+     */
+    void printMensagens();
 };
 
 #endif

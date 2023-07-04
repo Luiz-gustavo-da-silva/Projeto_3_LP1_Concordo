@@ -20,6 +20,11 @@ public:
      * @brief Nome do canal.
      */
      string nome;
+
+    /**
+     * @brief Destrutor da classe canal.
+     */
+     virtual ~Canal() {}
 };
 
 #endif

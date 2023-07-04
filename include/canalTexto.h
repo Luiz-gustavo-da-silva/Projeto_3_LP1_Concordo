@@ -25,6 +25,7 @@ public:
      * @brief Vetor de mensagens no canal de texto.
      */
     vector <Mensagem> mensagens;
+
 };
 
 #endif

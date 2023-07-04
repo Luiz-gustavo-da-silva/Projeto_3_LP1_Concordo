@@ -79,3 +79,72 @@ vector<int> Servidor::listaUsuariosServidor()
 {
     return participantesIDs;
 }
+
+void Servidor::listarCanais()
+{
+
+    cout << "#canais de texto" << endl;
+    for (const Canal *canal : canais)
+    {
+        if (dynamic_cast<const CanalTexto *>(canal) != nullptr)
+        {
+            cout << canal->nome << endl;
+            
+        }
+    }
+
+    cout << "#canais de voz" << endl;
+    for (const Canal *canal : canais)
+    {
+        if (dynamic_cast<const CanalVoz *>(canal) != nullptr)
+        {
+            cout << canal->nome << endl;
+            
+        }
+    }
+    
+}
+
+void Servidor::criarCanal(string nome, string tipo)
+{
+
+    for (const Canal *canal : canais)
+    {
+
+        if (canal->nome == nome)
+        {
+            if (tipo == "texto" && dynamic_cast<const CanalTexto *>(canal) != nullptr)
+            {
+                cout << "Já existe um canal de texto com o mesmo nome." << endl;
+                return;
+            }
+            else if (tipo == "voz" && dynamic_cast<const CanalVoz *>(canal) != nullptr)
+            {
+                cout << "Já existe um canal de voz com o mesmo nome." << endl;
+                return;
+            }
+        }
+    }
+
+    auto novoCanal = new Canal();
+
+    if (tipo == "texto")
+    {
+        novoCanal = new CanalTexto();
+        novoCanal->nome = nome;
+        canais.push_back(novoCanal);
+        cout << "Canal de texto '" << nome << "' criado" << endl;
+    }
+    else if (tipo == "voz")
+    {
+        novoCanal = new CanalVoz();
+        novoCanal->nome = nome;
+        canais.push_back(novoCanal);
+        cout << "Canal de texto '" << nome << "' criado" << endl;
+    }
+    else
+    {
+        cout << "Tipo de canal inválido." << endl;
+        return;
+    }
+}

@@ -11,6 +11,8 @@
 
 #include <vector>
 #include "canal.h"
+#include "canalTexto.h"
+#include "canalVoz.h"
 
 using namespace std;
 
@@ -49,6 +51,17 @@ public:
      * @brief Vetor de IDs dos participantes do servidor.
      */
     vector<int> participantesIDs;
+    
+    /**
+     * @brief Destrutor da classe servidor
+     */
+    ~Servidor()
+    {
+        for (Canal *canal : canais)
+        {
+            delete canal;
+        }
+    }
 
     /**
      * @brief Verifica se o usuário é o dono do servidor.
@@ -87,6 +100,20 @@ public:
      * @return Vetor de IDs dos participantes do servidor.
      */
     vector<int> listaUsuariosServidor();
+
+    /**
+     * @brief Imprime o conjunte de canais cadastrados no servidor.
+     */
+    void listarCanais();
+
+    /**
+     * @brief Retorna um vetor com os IDs dos participantes do servidor.
+     * @return Vetor de IDs dos participantes do servidor.
+     */
+    void criarCanal(string nome, string tipo);
+
+    
+    
 };
 
 #endif

@@ -187,9 +187,17 @@ CMakeFiles/concordo.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/sstream.tcc \
   ../include/usuario.h \
   ../include/sistema.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../include/canal.h \
   ../include/usuario.h \
   ../include/servidor.h \
+  ../include/canalTexto.h \
+  ../include/mensagem.h \
+  ../include/canalVoz.h \
   ../include/servidor.h
 
 CMakeFiles/concordo.dir/src/servidor.cpp.o: ../src/servidor.cpp \
@@ -375,7 +383,10 @@ CMakeFiles/concordo.dir/src/servidor.cpp.o: ../src/servidor.cpp \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
-  ../include/canal.h
+  ../include/canal.h \
+  ../include/canalTexto.h \
+  ../include/mensagem.h \
+  ../include/canalVoz.h
 
 CMakeFiles/concordo.dir/src/sistema.cpp.o: ../src/sistema.cpp \
   /usr/include/stdc-predef.h \
@@ -560,9 +571,17 @@ CMakeFiles/concordo.dir/src/sistema.cpp.o: ../src/sistema.cpp \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../include/canal.h \
   ../include/usuario.h \
-  ../include/servidor.h
+  ../include/servidor.h \
+  ../include/canalTexto.h \
+  ../include/mensagem.h \
+  ../include/canalVoz.h
 
 CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp \
   /usr/include/stdc-predef.h \
@@ -748,7 +767,17 @@ CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp \
 
 ../src/servidor.cpp:
 
+../include/mensagem.h:
+
+../include/canalTexto.h:
+
 ../include/servidor.h:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
+/usr/include/c++/11/limits:
+
+/usr/include/c++/11/ratio:
 
 ../include/usuario.h:
 
@@ -815,6 +844,8 @@ CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp \
 /usr/include/c++/11/cerrno:
 
 /usr/include/stdio.h:
+
+/usr/include/c++/11/chrono:
 
 /usr/include/c++/11/cstdio:
 
@@ -885,6 +916,8 @@ CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp \
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /usr/include/c++/11/bits/range_access.h:
+
+../include/canalVoz.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
@@ -961,6 +994,8 @@ CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /usr/include/c++/11/iosfwd:
+
+/usr/include/c++/11/ctime:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 

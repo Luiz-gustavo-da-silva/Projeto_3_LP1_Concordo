@@ -266,3 +266,122 @@ void Sistema::listarUsuarios()
         cout << usuario->nome << endl;
     }
 }
+
+/**
+ * @brief Entra em um canal com o nome fornecido no Servidor atualmente selecionado.
+ * @param nome Nome do canal a ser acessado.
+ * @return True se a entrada no canal foi bem-sucedida, False caso contrário.
+ */
+bool Sistema::entrarCanal(string nome)
+{
+    vector<Canal *> canais = servidorAtual->canais;
+
+    for (Canal *canal : canais)
+    {
+        if (canal->nome == nome)
+        {
+            canalAtual = canal;
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * @brief Sai do canal atualmente selecionado.
+ * @return True se a saída do canal foi bem-sucedida, False caso contrário.
+ */
+bool Sistema::sairCanal()
+{
+    canalAtual = nullptr;
+    return true;
+}
+
+/**
+ * @brief Verifica se o usuário está associado a um canal.
+ * @return True se o usuário está associado a um canal, False caso contrário.
+ */
+bool Sistema::verificaUsuarioNoCanal()
+{
+    if (canalAtual == nullptr)
+    {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * @brief Envia uma mensagem para o canal atualmente selecionado.
+ * @param mensagem Conteúdo da mensagem a ser enviada.
+ */
+void Sistema::enviarMensagem(string mensagem)
+{
+    chrono::system_clock::time_point now = std::chrono::system_clock::now();
+    time_t currentTime = std::chrono::system_clock::to_time_t(now);
+    char buffer[80];
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", std::localtime(&currentTime));
+
+    Mensagem mensagemOBJ;
+    mensagemOBJ.dataHora = buffer;
+    mensagemOBJ.enviadaPor = usuarioAtual->id;
+    mensagemOBJ.conteudo = mensagem;
+
+    if (canalAtual == nullptr)
+    {
+        cout << "Nenhum canal selecionado." << endl;
+        return;
+    }
+
+    if (CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(canalAtual))
+    {
+        canalTexto->mensagens.push_back(mensagemOBJ);
+    }
+    else if (CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(canalAtual))
+    {
+        canalVoz->ultimaMensagem = mensagemOBJ;
+    }
+    else
+    {
+        cout << "Canal inválido." << endl;
+        return;
+    }
+}
+
+/**
+ * @brief Exibe as mensagens do canal atualmente selecionado.
+ * Se não houver nenhuma mensagem para exibir, exibe uma mensagem de aviso.
+ */
+void Sistema::printMensagens()
+{
+    if (CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(canalAtual))
+    {
+        vector<Mensagem> mensagens = canalTexto->mensagens;
+
+        if (mensagens.empty())
+        {
+            cout << "Sem mensagens para exibir" << endl;
+            return;
+        }
+
+        for (const Mensagem &mensagem : mensagens)
+        {
+            cout << usuarioAtual->nome << "<" << mensagem.dataHora << ">: " << mensagem.conteudo << endl;
+        }
+    }
+    else if (CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(canalAtual))
+    {
+        Mensagem mensagem = canalVoz->ultimaMensagem;
+
+        if (mensagem.conteudo.empty())
+        {
+            cout << "Sem mensagens para exibir" << endl;
+            return;
+        }
+
+        cout << usuarioAtual->nome << "<" << mensagem.dataHora << ">: " << mensagem.conteudo << endl;
+    }
+    else
+    {
+        cout << "Canal inválido." << endl;
+    }
+}

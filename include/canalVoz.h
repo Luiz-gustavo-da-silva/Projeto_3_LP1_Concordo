@@ -24,6 +24,7 @@ public:
      * @brief Última mensagem enviada no canal de voz.
      */
     Mensagem ultimaMensagem;
+
 };
 
 #endif
