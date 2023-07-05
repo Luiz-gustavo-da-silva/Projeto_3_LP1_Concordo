@@ -1,4 +1,4 @@
-# Projeto 3 LP1 Concordo parte 1
+# Projeto 3 LP1 Concordo parte 1 e 2
 
 ## Grupo:
 
@@ -21,9 +21,9 @@ https://drive.google.com/file/d/1UCV0XgL8M02OhzdexoILAv5XrfOFrFHB/view?usp=shari
 - Clone o repositório "git clone https://github.com/Luiz-gustavo-da-silva/Projeto_3_LP1_Concordo.git"
 - Navegue até ele "cd Projeto_3_LP1_Concordo"
 - Crie uma pasta build na raiz do projeto
-- Navegue até ela
-- Execute o camando cmake ..
-- Execute o comando make
+- Navegue até ela "cd build"
+- Execute o camando "cmake ..""
+- Execute o comando "make"
 - Por fim, rode o executável gerado "./concordo"
 
 ### Comandos do código
@@ -51,6 +51,20 @@ https://drive.google.com/file/d/1UCV0XgL8M02OhzdexoILAv5XrfOFrFHB/view?usp=shari
 - leave-server: remoção de um servidor do sistema (só funciona para donos)    
 
 - list-participants: listar usuários participantes de um servidor pelo nome 
+
+- list-channels: listar canais de um servidor
+
+- create-channel: criar canal em um servdor
+
+- enter-channel: entrar em um canal de um servidor
+
+- send-message: mandar mensagem em um canal
+
+- list-messages: listar mensagens de um chat 
+
+- leave-channel: sair de um canal 
+
+- exit: terminar a execução do programa
 
 ### Dificuldades
 
