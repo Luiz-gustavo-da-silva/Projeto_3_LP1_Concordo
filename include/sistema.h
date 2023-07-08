@@ -193,15 +193,15 @@ public:
      */
     void printMensagens();
 
-    void salvar()
-    {
-        salvarUsuarios();
-        salvarServidores();
-    }
+    void salvar();
+    
+    void carregar();
     
 private:
     void salvarUsuarios();
     void salvarServidores();
+    void carregarUsuarios();
+    void carregarServidores();
 };
 
 #endif

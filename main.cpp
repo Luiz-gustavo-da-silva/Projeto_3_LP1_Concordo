@@ -380,9 +380,11 @@ int main()
 {
 
     string linhaComando;
-
     Sistema *sistema = new Sistema();
     vector<string> comandos;
+
+    sistema->carregar();
+    
     int id = 1;
 
     while (true)
