@@ -401,6 +401,7 @@ int main()
         {
             // Lógica para criar um usuário
             createUser(sistema, comandos, id);
+            sistema->salvar();
         }
         else if (comandos[0] == "login")
         {
@@ -410,8 +411,9 @@ int main()
         else if (comandos[0] == "quit")
         {
             quit();
-            break;
+            sistema->salvar();
             return 0;
+            break;
         }
         else if (comandos[0] == "disconnect")
         {
@@ -422,18 +424,21 @@ int main()
         {
             // Lógica para criar um servidor
             createServer(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "set-server-desc")
         {
             // Lógica para mudar a descrição de um servidor
 
             setServerDescription(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "set-server-invite-code")
         {
             // Lógica para Setar código de convite para o servidor
 
             setServerInviteCode(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "list-servers")
         {
@@ -444,11 +449,13 @@ int main()
         {
             // Lógica para remover um servidor
             removeServer(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "enter-server")
         {
             // Lógica para entrar em um servidor
             enterServer(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "leave-server")
         {
@@ -470,16 +477,19 @@ int main()
         {
             // Lógica para criar os canais de um servidor
             criarCanal(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "enter-channel")
         {   
             // Lógica para entrar em um canal de um servidor
             entrarCanal(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "send-message")
         {
             // Lógica para listar os canais de um servidor
             mardarMensagem(sistema, comandos);
+            sistema->salvar();
         }
         else if (comandos[0] == "list-messages")
         {
@@ -492,6 +502,7 @@ int main()
             sairCanal(sistema);
         }else if(comandos[0] == "exit"){
             cout << "Programa encerrado!" << endl;
+            sistema->salvar();
             return 0;
         }
         else
@@ -502,6 +513,8 @@ int main()
 
         comandos.clear();
     }
+
+    
 
     delete sistema;
 

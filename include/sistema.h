@@ -11,6 +11,7 @@
 #include <vector>
 #include <chrono>
 #include <ctime>
+#include <fstream>
 
 #include "canal.h"
 #include "usuario.h"
@@ -24,6 +25,7 @@ using namespace std;
  */
 class Sistema
 {
+
 public:
     /**
      * @brief Vetor de ponteiros para objetos da classe Usuario.
@@ -190,6 +192,16 @@ public:
      * Se não houver nenhuma mensagem para exibir, exibe uma mensagem de aviso.
      */
     void printMensagens();
+
+    void salvar()
+    {
+        salvarUsuarios();
+        salvarServidores();
+    }
+    
+private:
+    void salvarUsuarios();
+    void salvarServidores();
 };
 
 #endif

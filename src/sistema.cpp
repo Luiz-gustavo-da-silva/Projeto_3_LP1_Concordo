@@ -385,3 +385,95 @@ void Sistema::printMensagens()
         cout << "Canal inválido." << endl;
     }
 }
+
+void Sistema::salvarUsuarios()
+{
+    ofstream arquivo("../arquivos/usuarios.txt");
+
+    if (!arquivo.is_open())
+    {
+        // O arquivo não existe, então vamos criá-lo
+        arquivo.open("../arquivos/usuarios.txt", ios::app);
+
+        if (!arquivo.is_open())
+        {
+            cout << "Error: não foi possiível abrir o arquivo!" << endl;
+
+            return;
+        }
+    }
+
+    arquivo << usuarios.size() << "\n";
+
+    for (Usuario *usuario : usuarios)
+    {
+        arquivo << usuario->id << "\n";
+        arquivo << usuario->nome << "\n";
+        arquivo << usuario->email << "\n";
+        arquivo << usuario->senha << "\n";
+    }
+
+    arquivo.close();
+}
+
+void Sistema::salvarServidores()
+{
+    ofstream arquivo("../arquivos/servidores.txt");
+
+    if (!arquivo.is_open())
+    {
+        arquivo.open("../arquivos/servidores.txt", ios::app);
+
+        if (!arquivo.is_open())
+        {
+            cout << "Error: não foi possiível abrir o arquivo!" << endl;
+
+            return;
+        }
+    }
+
+    arquivo << servidores.size() << "\n";
+
+    for (Servidor *servidor : servidores)
+    {
+        arquivo << servidor->usuarioDonoId << "\n";
+        arquivo << servidor->nome << "\n";
+        arquivo << servidor->descricao << "\n";
+        arquivo << servidor->codigoConvite << "\n";
+        arquivo << servidor->participantesIDs.size() << "\n";
+        
+        for (int i = 0; i < servidor->participantesIDs.size(); i++)
+        {
+            arquivo << servidor->participantesIDs[i] << "\n";
+        }
+        
+        arquivo << servidor->canais.size() << "\n";
+
+        for (int a = 0; a < servidor->canais.size(); a++)
+        {
+
+            arquivo << servidor->canais[a]->nome << "\n";
+            if(CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(servidor->canais[a])){
+                arquivo << "VOZ \n";
+                if(canalVoz->ultimaMensagem.conteudo != ""){
+                    arquivo << "1" << "\n";
+                }
+                arquivo << canalVoz->ultimaMensagem.enviadaPor << "\n";
+                arquivo << canalVoz->ultimaMensagem.dataHora << "\n";
+                arquivo << canalVoz->ultimaMensagem.conteudo << "\n";
+            }else if(CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(servidor->canais[a])){
+                arquivo << "TEXTO \n";
+                arquivo << canalTexto->mensagens.size() << "\n";
+
+                for (Mensagem mensagem: canalTexto->mensagens)
+                {
+                    arquivo << mensagem.enviadaPor << "\n";
+                    arquivo << mensagem.dataHora << "\n";
+                    arquivo << mensagem.conteudo << "\n";
+                } 
+            }    
+        }   
+    }
+
+    arquivo.close();
+}
