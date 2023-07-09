@@ -386,12 +386,19 @@ void Sistema::printMensagens()
     }
 }
 
+/**
+ * @brief Chama os métodos salvarUsuarios e salvarServidores para salvar as informações
+ * dos usuários e servidores nos arquivos externos. 
+ */
 void Sistema::salvar()
 {
     salvarUsuarios();
     salvarServidores();
 }
 
+/**
+ * @brief Salva no arquivo externo usuarios.txt as informações referentes aos usuários do sistema.
+ */
 void Sistema::salvarUsuarios()
 {
     ofstream arquivo("../arquivos/usuarios.txt");
@@ -422,6 +429,9 @@ void Sistema::salvarUsuarios()
     arquivo.close();
 }
 
+/**
+ * @brief Salva no arquivo externo servidores.txt as informações referentes aos servidores do sistema.
+ */
 void Sistema::salvarServidores()
 {
     ofstream arquivo("../arquivos/servidores.txt");
@@ -489,12 +499,19 @@ void Sistema::salvarServidores()
     arquivo.close();
 }
 
+/**
+ * @brief Chama os métodos carregarUsuarios e carregarServidores para resgatar as informações
+ * dos usuários e servidores nos arquivos externos. 
+ */
 void Sistema::carregar()
 {
     carregarUsuarios();
     carregarServidores();
 }
 
+/**
+ * @brief Recupera os dados referentes aos usuários no arquivo externo e adiciona na aplicação. 
+ */
 void Sistema::carregarUsuarios()
 {
     cout << "Carregando dados ... " << endl;
@@ -539,6 +556,10 @@ void Sistema::carregarUsuarios()
     }
 }
 
+
+/**
+ * @brief Recupera os dados referentes aos servidores no arquivo externo e adiciona na aplicação. 
+ */
 void Sistema::carregarServidores()
 {
     cout << "Carregando dados ... " << endl;

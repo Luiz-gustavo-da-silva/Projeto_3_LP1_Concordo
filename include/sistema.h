@@ -53,7 +53,7 @@ public:
     Canal *canalAtual;
 
     /**
-     * @brief Variável que faz o controle dos ids dos usuaários criados 
+     * @brief Variável que faz o controle dos ids dos usuaários criados
      */
     int id = 0;
 
@@ -198,8 +198,16 @@ public:
      */
     void printMensagens();
 
+    /**
+     * @brief Chama os métodos salvarUsuarios e salvarServidores para salvar as informações
+     * dos usuários e servidores nos arquivos externos.
+     */
     void salvar();
 
+    /**
+     * @brief Chama os métodos carregarUsuarios e carregarServidores para resgatar as informações
+     * dos usuários e servidores nos arquivos externos.
+     */
     void carregar();
 
     // metodo só para teste !!!
@@ -239,26 +247,48 @@ public:
                         cout << m.dataHora << endl;
                         cout << m.conteudo << endl;
                     }
-                }else if(CanalVoz *voz = dynamic_cast<CanalVoz *>(canal)){
+                }
+                else if (CanalVoz *voz = dynamic_cast<CanalVoz *>(canal))
+                {
                     cout << voz->ultimaMensagem.enviadaPor << endl;
                     cout << voz->ultimaMensagem.dataHora << endl;
                     cout << voz->ultimaMensagem.conteudo << endl;
-
                 }
             }
         }
     }
 
-    int proximoId(){
+    /**
+     * @brief Faz o controle dos ids na criação dos usuários;
+     * @return Retorna o próximo id
+     */
+    int proximoId()
+    {
         this->id = this->id + 1;
         cout << this->id << endl;
         return this->id;
     }
 
 private:
+
+    /**
+     * @brief Salva no arquivo externo usuarios.txt as informações referentes aos usuários do sistema.
+     */
     void salvarUsuarios();
+
+    /**
+     * @brief Salva no arquivo externo servidores.txt as informações referentes aos servidores do sistema.
+     */
     void salvarServidores();
+
+    /**
+     * @brief Recupera os dados referentes aos usuários no arquivo externo e adiciona na aplicação.
+     */
     void carregarUsuarios();
+
+    /**
+     * @brief Recupera os dados referentes aos servidores no arquivo externo e adiciona na aplicação.
+     */
     void carregarServidores();
 };
 
