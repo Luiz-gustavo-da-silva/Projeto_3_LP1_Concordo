@@ -53,6 +53,11 @@ public:
     Canal *canalAtual;
 
     /**
+     * @brief Variável que faz o controle dos ids dos usuaários criados 
+     */
+    int id = 0;
+
+    /**
      * @brief Destrutor da classe Sistema.
      */
     ~Sistema();
@@ -153,7 +158,7 @@ public:
     Servidor *retornaServidorAtual();
 
     /**
-     * @brief Lista os nomes dos Usuarios associados ao Servidor atualmente selecionado.
+     * @brief Lista os nomes dos Usu*(arios associados ao Servidor atualmente selecionado.
      */
     void listaUsuariosServidor();
 
@@ -194,9 +199,62 @@ public:
     void printMensagens();
 
     void salvar();
-    
+
     void carregar();
-    
+
+    // metodo só para teste !!!
+    void printUsuario()
+    {
+        for (Usuario *usuario : usuarios)
+        {
+            cout << usuario->id << endl;
+            cout << usuario->email << endl;
+            cout << usuario->senha << endl;
+        }
+    }
+
+    // metodo só para teste !!!
+    void printServidor()
+    {
+        for (Servidor *servidor : servidores)
+        {
+            cout << servidor->usuarioDonoId << endl;
+            cout << servidor->nome << endl;
+            cout << servidor->descricao << endl;
+            cout << servidor->codigoConvite << endl;
+
+            servidor->listarCanais();
+            for (int n : servidor->listaUsuariosServidor())
+            {
+                cout << n << endl;
+            }
+
+            for (Canal *canal : servidor->canais)
+            {
+                if (CanalTexto *texto = dynamic_cast<CanalTexto *>(canal))
+                {
+                    for (Mensagem m : texto->mensagens)
+                    {
+                        cout << m.enviadaPor << endl;
+                        cout << m.dataHora << endl;
+                        cout << m.conteudo << endl;
+                    }
+                }else if(CanalVoz *voz = dynamic_cast<CanalVoz *>(canal)){
+                    cout << voz->ultimaMensagem.enviadaPor << endl;
+                    cout << voz->ultimaMensagem.dataHora << endl;
+                    cout << voz->ultimaMensagem.conteudo << endl;
+
+                }
+            }
+        }
+    }
+
+    int proximoId(){
+        this->id = this->id + 1;
+        cout << this->id << endl;
+        return this->id;
+    }
+
 private:
     void salvarUsuarios();
     void salvarServidores();

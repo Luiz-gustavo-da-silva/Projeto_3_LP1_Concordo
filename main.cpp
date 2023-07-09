@@ -29,7 +29,7 @@ vector<string> quebrarString(const string &linhaComando)
         comandos.push_back(info1);
         comandos.push_back(info2);
     }
-    else if (comando == "set-server-invite-code" || comando == "enter-server")
+    else if (comando == "set-server-invite-code")
     {
         // linha com 2 ou 3 comandos
 
@@ -45,9 +45,9 @@ vector<string> quebrarString(const string &linhaComando)
         comandos.push_back(servidor);
         comandos.push_back(senha);
     }
-    else if (comando == "send-message")
+    else if (comando == "send-message" || comando == "enter-channel" || comando == "enter-server")
     {
-
+        
         string info1 = linhaComando.substr(pos1 + 1, linhaComando.length());
         comandos.push_back(info1);
     }
@@ -70,7 +70,7 @@ vector<string> quebrarString(const string &linhaComando)
     return comandos;
 }
 
-void createUser(Sistema *sistema, vector<std::string> &comandos, int &id)
+void createUser(Sistema *sistema, vector<std::string> &comandos)
 {
     if (sistema->usuarioExiste(comandos[1]))
     {
@@ -80,14 +80,12 @@ void createUser(Sistema *sistema, vector<std::string> &comandos, int &id)
     {
         auto novoUsuario = new Usuario();
 
-        novoUsuario->id = id;
+        novoUsuario->id = sistema->proximoId();
         novoUsuario->email = comandos[1];
         novoUsuario->senha = comandos[2];
         novoUsuario->nome = comandos[3];
 
         sistema->cadastrarUsuario(novoUsuario);
-
-        id++;
 
         cout << "Usuário criado" << endl;
     }
@@ -384,8 +382,6 @@ int main()
     vector<string> comandos;
 
     sistema->carregar();
-    
-    int id = 1;
 
     while (true)
     {
@@ -402,7 +398,7 @@ int main()
         if (comandos[0] == "create-user")
         {
             // Lógica para criar um usuário
-            createUser(sistema, comandos, id);
+            createUser(sistema, comandos);
             sistema->salvar();
         }
         else if (comandos[0] == "login")

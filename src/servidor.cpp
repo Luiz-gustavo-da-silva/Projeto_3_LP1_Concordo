@@ -89,7 +89,6 @@ void Servidor::listarCanais()
         if (dynamic_cast<const CanalTexto *>(canal) != nullptr)
         {
             cout << canal->nome << endl;
-            
         }
     }
 

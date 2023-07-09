@@ -497,23 +497,30 @@ void Sistema::carregar()
 
 void Sistema::carregarUsuarios()
 {
-    int qUsuarios = 0;
-    int nLinha = 0;
-    std::string linha;
-    auto usuario = new Usuario();
+    cout << "Carregando dados ... " << endl;
 
-    std::ifstream arquivo("../arquivos/usuarios.txt"); // Substitua "exemplo.txt" pelo nome do seu arquivo
+    int qUsuarios = 0;
+    string linha;
+
+    ifstream arquivo("../arquivos/usuarios.txt");
 
     if (arquivo.is_open())
     {
         getline(arquivo, linha);
-
+        if (linha == "")
+        {
+            cout << "O arquivo não possui dados." << endl;
+            return;
+        }
         qUsuarios = stoi(linha);
 
         for (int i = 0; i < qUsuarios; i++)
         {
+            auto usuario = new Usuario();
             getline(arquivo, linha);
             usuario->id = stoi(linha);
+            // Adiciona o id do último usuário    
+            this->id = stoi(linha);
             getline(arquivo, linha);
             usuario->nome = linha;
             getline(arquivo, linha);
@@ -524,105 +531,168 @@ void Sistema::carregarUsuarios()
             usuarios.push_back(usuario);
         }
 
-        arquivo.close(); // Fechar o arquivo
+        arquivo.close();
     }
     else
     {
-        std::cout << "Falha ao abrir o arquivo." << std::endl;
+        std::cout << "Falha ao abrir o arquivo de entrada. Pode ser que ele não exista." << std::endl;
     }
 }
 
 void Sistema::carregarServidores()
 {
-    int qServidor = 0;
-    int qParticipantes = 0;
-    int qCanais = 0;
-    int qMensagens = 0;
-    int v = 0;
-    int nLinha = 0;
-    string linha;
-    auto servidor = new Servidor();
-    auto canal = new Canal();
-    auto mensagem = new Mensagem();
+    cout << "Carregando dados ... " << endl;
 
-    std::ifstream arquivo("../arquivos/servidores.txt"); // Substitua "exemplo.txt" pelo nome do seu arquivo
+    int qServidores = 0;
+    int qUsuarios = 0;
+    int qCanais = 0;
+    int qMensagem = 0;
+    string nomeCanal;
+    string linha;
+
+    ifstream arquivo("../arquivos/servidores.txt");
 
     if (arquivo.is_open())
     {
+        // n servidores
         getline(arquivo, linha);
-        qServidor = stoi(linha);
-
-        for (int i = 0; i < qServidor; i++)
+        //cout << linha << endl;
+        if (linha == "")
         {
-            getline(arquivo, linha);
-            servidor->usuarioDonoId = stoi(linha);
-            getline(arquivo, linha);
-            servidor->nome = linha;
-            getline(arquivo, linha);
-            servidor->descricao = linha;
-            getline(arquivo, linha);
-            servidor->codigoConvite = linha;
-            getline(arquivo, linha);
-            qParticipantes = stoi(linha);
+            cout << "O arquivo não possui dados." << endl;
+            return;
+        }
+        qServidores = stoi(linha);
 
-            for (int i = 0; i < qParticipantes; i++)
+        for (int i = 0; i < qServidores; i++)
+        {
+            auto servidor = new Servidor();
+
+            // id usuário dono
+            getline(arquivo, linha);
+            //cout << linha << endl;
+            servidor->usuarioDonoId = stoi(linha);
+
+            // nome do server
+            getline(arquivo, linha);
+            //cout << linha << endl;
+            servidor->nome = linha;
+
+            // descrição server
+            getline(arquivo, linha);
+            //cout << linha << endl;
+            servidor->setDescricao(linha);
+
+            // código de convite
+            getline(arquivo, linha);
+            //cout << linha << endl;
+            servidor->setCodigoConvite(linha);
+
+            // n usuários
+            getline(arquivo, linha);
+            //cout << linha << endl;
+            qUsuarios = stoi(linha);
+
+            for (int i = 0; i < qUsuarios; i++)
             {
+                // id usuário participante
                 getline(arquivo, linha);
+                //cout << linha << endl;
                 servidor->participantesIDs.push_back(stoi(linha));
             }
 
+            // n canais
             getline(arquivo, linha);
+            //cout << linha << endl;
             qCanais = stoi(linha);
 
             for (int i = 0; i < qCanais; i++)
             {
+                // nome canal
                 getline(arquivo, linha);
-                canal->nome = linha;
-                getline(arquivo, linha);
+                //cout << linha << endl;
+                nomeCanal = linha;
 
-                if (linha == "TEXTO")
+                // tipo canal
+                getline(arquivo, linha);
+                //cout << linha << endl;
+
+                if ("TEXTO" == linha)
                 {
-                    CanalTexto *canalTexto = dynamic_cast<CanalTexto *>(canal);
-                    getline(arquivo, linha);
-                    qMensagens = stoi(linha);
+                    auto canalTexto = new CanalTexto();
+                    canalTexto->nome = nomeCanal;
 
-                    for (int i = 0; i < qMensagens; i++)
+                    // n mensagens
+                    getline(arquivo, linha);
+                    qMensagem = stoi(linha);
+                    //cout << linha << endl;
+                    for (int i = 0; i < qMensagem; i++)
                     {
+                        auto mensagem = new Mensagem();
+
+                        // ID do usuário que a escreveu
                         getline(arquivo, linha);
+                        //cout << linha << endl;
                         mensagem->enviadaPor = stoi(linha);
+
+                        // Data e hora
                         getline(arquivo, linha);
+                        //cout << linha << endl;
                         mensagem->dataHora = linha;
+
+                        // conteúdo
                         getline(arquivo, linha);
+                        //cout << linha << endl;
                         mensagem->conteudo = linha;
+
+                        // adição da mensagem no canal
                         canalTexto->mensagens.push_back(*mensagem);
                     }
+
+                    // adição do canal no servidor
+                    servidor->canais.push_back(canalTexto);
                 }
                 else
                 {
-                    CanalVoz *canalVoz = dynamic_cast<CanalVoz *>(canal);
+                    auto canalVoz = new CanalVoz();
+                    canalVoz->nome = nomeCanal;
+
+                    // n mensagens
                     getline(arquivo, linha);
-                    qMensagens = stoi(linha);
+                    //cout << linha << endl;
+                    qMensagem = stoi(linha);
+                    if(qMensagem != 0){
 
-                    if(qMensagens != 0){
+                        // ID do usuário que a escreveu
                         getline(arquivo, linha);
+                        //cout << linha << endl;
                         canalVoz->ultimaMensagem.enviadaPor = stoi(linha);
-                        getline(arquivo, linha);
-                        canalVoz->ultimaMensagem.dataHora = linha;
-                        getline(arquivo, linha);
-                        canalVoz->ultimaMensagem.conteudo = linha;
-                    }
-                }
 
-                servidor->canais.push_back(canal);
+                        // Data e hora
+                        getline(arquivo, linha);
+                        //cout << linha << endl;
+                        canalVoz->ultimaMensagem.dataHora = linha;
+
+                        // conteúdo
+                        getline(arquivo, linha);
+                        //cout << linha << endl;
+                        canalVoz->ultimaMensagem.conteudo = linha;
+
+                    }
+
+                    // adição do canal no servidor
+                    servidor->canais.push_back(canalVoz);
+                }
             }
 
+            // adição do servidor no vetor de servidores em sistema
             servidores.push_back(servidor);
         }
 
-        arquivo.close(); 
+        arquivo.close();
     }
     else
     {
-        std::cout << "Falha ao abrir o arquivo." << std::endl;
+        std::cout << "Falha ao abrir o arquivo de entrada. Pode ser que ele não exista." << std::endl;
     }
 }

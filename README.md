@@ -26,6 +26,7 @@ https://drive.google.com/file/d/1UCV0XgL8M02OhzdexoILAv5XrfOFrFHB/view?usp=shari
 - Execute o comando "make"
 - Por fim, rode o executável gerado "./concordo"
 
+
 ### Comandos do código
 
 - quit: programa é fechado
