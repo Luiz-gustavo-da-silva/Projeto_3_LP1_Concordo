@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "acdeilmnpqrsuv~",
+  0: "_acdehilmnpqrsuv~",
   1: "cmsu",
   2: "cmrsu",
   3: "acdelmpqrsuv~",
   4: "cdeimnpsu",
-  5: "p"
+  5: "_acdhps",
+  6: "p"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "pages"
+  5: "defines",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Arquivos",
   3: "Funções",
   4: "Variáveis",
-  5: "Páginas"
+  5: "Definições e Macros",
+  6: "Páginas"
 };
 

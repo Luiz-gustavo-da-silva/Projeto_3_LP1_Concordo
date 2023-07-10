@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['removerservidor_1',['removerServidor',['../class_sistema.html#a81f14350c3c30259f072f21d7573f976',1,'Sistema']]],
-  ['removeserver_2',['removeServer',['../main_8cpp.html#ad3478b6ccb8d26b4015fc17ced4cefe8',1,'main.cpp']]],
-  ['retornaservidor_3',['retornaServidor',['../class_sistema.html#a0388a240f00f03bd579c1cc22337f490',1,'Sistema']]],
-  ['retornaservidoratual_4',['retornaServidorAtual',['../class_sistema.html#a14897037420dd29cef1985c75e786bf4',1,'Sistema']]],
-  ['retornausuario_5',['retornaUsuario',['../class_sistema.html#a434026b700322e6ec08c6abaa555fe6a',1,'Sistema']]],
-  ['returnaid_6',['returnaId',['../class_usuario.html#a5c32c779de28de7d9ab7fe2f65385cb7',1,'Usuario']]]
+  ['participantesids_0',['participantesIDs',['../class_servidor.html#af168f5233e9824ae5e5da78553712272',1,'Servidor']]],
+  ['platform_5fid_1',['PLATFORM_ID',['../_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]],
+  ['printmensagens_2',['printMensagens',['../class_sistema.html#a95c2e29f961916eab0254a5a7f3f677e',1,'Sistema']]],
+  ['printservidor_3',['printServidor',['../class_sistema.html#a4b3806486f27e14334f8145259a1c594',1,'Sistema']]],
+  ['printusuario_4',['printUsuario',['../class_sistema.html#ae8456210d5e9bd2123b592085ff1d279',1,'Sistema']]],
+  ['projeto_203_20lp1_20concordo_20parte_201_20e_202_5',['Projeto 3 LP1 Concordo parte 1 e 2',['../md__projeto_3__l_p1__concordo__r_e_a_d_m_e.html',1,'']]],
+  ['proximoid_6',['proximoId',['../class_sistema.html#a026b9e63ef12837356a75ec4e2033c22',1,'Sistema']]]
 ];

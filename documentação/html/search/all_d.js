@@ -1,8 +1,24 @@
 var searchData=
 [
-  ['verificacodigoconvite_0',['verificaCodigoConvite',['../class_servidor.html#a269ab3d919c9379b0948ca7f5a282439',1,'Servidor']]],
-  ['verificausuariodono_1',['verificaUsuarioDono',['../class_servidor.html#a79ed32f09d95e4b083d3d8f24e98dd29',1,'Servidor']]],
-  ['verificausuariologado_2',['verificaUsuarioLogado',['../class_sistema.html#a1bb3013226e35d708895b1c2d98f2a6c',1,'Sistema']]],
-  ['verificausuarionocanal_3',['verificaUsuarioNoCanal',['../class_sistema.html#abf9cb2b6e2933210e4a6470eee73ec1d',1,'Sistema']]],
-  ['verificausuarionoservidor_4',['verificaUsuarioNoServidor',['../class_sistema.html#af00e9f2fe83b4d4d5b784ac861b1d809',1,'Sistema']]]
+  ['saircanal_0',['sairCanal',['../class_sistema.html#a8a3bdeab00f4e1e4720a8e17e185c81c',1,'Sistema::sairCanal()'],['../main_8cpp.html#a76eb329d27543749cc8067ec8025f8ff',1,'sairCanal():&#160;main.cpp']]],
+  ['sairservidor_1',['sairServidor',['../class_sistema.html#a7d28ff1a20471e76729dd1e12e6fc2f5',1,'Sistema']]],
+  ['salvar_2',['salvar',['../class_sistema.html#a118d16dc0bcefb5bbe29bdfd471def2c',1,'Sistema']]],
+  ['senha_3',['senha',['../class_usuario.html#a99d6b6876b9118121cb9171dde26cc44',1,'Usuario']]],
+  ['servidor_4',['Servidor',['../class_servidor.html',1,'']]],
+  ['servidor_2ecpp_5',['servidor.cpp',['../servidor_8cpp.html',1,'']]],
+  ['servidor_2ecpp_2eo_2ed_6',['servidor.cpp.o.d',['../servidor_8cpp_8o_8d.html',1,'']]],
+  ['servidor_2eh_7',['servidor.h',['../servidor_8h.html',1,'']]],
+  ['servidoratual_8',['servidorAtual',['../class_sistema.html#a3c1f5712be557d41ef56e9b931fbe866',1,'Sistema']]],
+  ['servidores_9',['servidores',['../class_sistema.html#a3221627859b58d343196841b1566be85',1,'Sistema']]],
+  ['servidorexiste_10',['servidorExiste',['../class_sistema.html#aadc746d0c63a1239bc734d4b3ea42c03',1,'Sistema']]],
+  ['setcodigoconvite_11',['setCodigoConvite',['../class_servidor.html#a4a7975c8079c3e8f62cc1b049bb3d4d9',1,'Servidor']]],
+  ['setdescricao_12',['setDescricao',['../class_servidor.html#afc705d30235d428bf6b488876081f457',1,'Servidor']]],
+  ['setserverdescription_13',['setServerDescription',['../main_8cpp.html#ab4835393f88593df09ed90eb153c1a53',1,'main.cpp']]],
+  ['setserverinvitecode_14',['setServerInviteCode',['../main_8cpp.html#acc5720cbbf12825d66abe7df881ac6be',1,'main.cpp']]],
+  ['sistema_15',['Sistema',['../class_sistema.html',1,'']]],
+  ['sistema_2ecpp_16',['sistema.cpp',['../sistema_8cpp.html',1,'']]],
+  ['sistema_2ecpp_2eo_2ed_17',['sistema.cpp.o.d',['../sistema_8cpp_8o_8d.html',1,'']]],
+  ['sistema_2eh_18',['sistema.h',['../sistema_8h.html',1,'']]],
+  ['stringify_19',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCXXCompilerId.cpp']]],
+  ['stringify_5fhelper_20',['STRINGIFY_HELPER',['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCXXCompilerId.cpp']]]
 ];

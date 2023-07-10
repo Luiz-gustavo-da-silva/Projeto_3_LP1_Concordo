@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Concordo: Referência da Classe Servidor</title>
+<title>concordo: Referência da Classe Servidor</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Concordo<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">concordo<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -230,48 +230,48 @@ Atributos Públicos</h2></td></tr>
 
 <p>Retorna um vetor com os IDs dos participantes do servidor. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor de IDs dos participantes do servidor. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>{</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="class_canal.html">Canal</a> *canal : <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>)</div>
-<div class="line"><span class="lineno">  112</span>    {</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">if</span> (canal-&gt;nome == <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>)</div>
-<div class="line"><span class="lineno">  115</span>        {</div>
-<div class="line"><span class="lineno">  116</span>            <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;texto&quot;</span> &amp;&amp; <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_texto.html">CanalTexto</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
-<div class="line"><span class="lineno">  117</span>            {</div>
-<div class="line"><span class="lineno">  118</span>                cout &lt;&lt; <span class="stringliteral">&quot;Já existe um canal de texto com o mesmo nome.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  119</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  120</span>            }</div>
-<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;voz&quot;</span> &amp;&amp; <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_voz.html">CanalVoz</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
-<div class="line"><span class="lineno">  122</span>            {</div>
-<div class="line"><span class="lineno">  123</span>                cout &lt;&lt; <span class="stringliteral">&quot;Já existe um canal de voz com o mesmo nome.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  124</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  125</span>            }</div>
-<div class="line"><span class="lineno">  126</span>        }</div>
-<div class="line"><span class="lineno">  127</span>    }</div>
-<div class="line"><span class="lineno">  128</span> </div>
-<div class="line"><span class="lineno">  129</span>    <span class="keyword">auto</span> novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal.html">Canal</a>();</div>
-<div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;texto&quot;</span>)</div>
-<div class="line"><span class="lineno">  132</span>    {</div>
-<div class="line"><span class="lineno">  133</span>        novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal_texto.html">CanalTexto</a>();</div>
-<div class="line"><span class="lineno">  134</span>        novoCanal-&gt;nome = <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>;</div>
-<div class="line"><span class="lineno">  135</span>        <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>.push_back(novoCanal);</div>
-<div class="line"><span class="lineno">  136</span>        cout &lt;&lt; <span class="stringliteral">&quot;Canal de texto &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a> &lt;&lt; <span class="stringliteral">&quot;&#39; criado&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  137</span>    }</div>
-<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;voz&quot;</span>)</div>
-<div class="line"><span class="lineno">  139</span>    {</div>
-<div class="line"><span class="lineno">  140</span>        novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal_voz.html">CanalVoz</a>();</div>
-<div class="line"><span class="lineno">  141</span>        novoCanal-&gt;nome = <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>;</div>
-<div class="line"><span class="lineno">  142</span>        <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>.push_back(novoCanal);</div>
-<div class="line"><span class="lineno">  143</span>        cout &lt;&lt; <span class="stringliteral">&quot;Canal de texto &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a> &lt;&lt; <span class="stringliteral">&quot;&#39; criado&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  146</span>    {</div>
-<div class="line"><span class="lineno">  147</span>        cout &lt;&lt; <span class="stringliteral">&quot;Tipo de canal inválido.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  148</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  149</span>    }</div>
-<div class="line"><span class="lineno">  150</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="class_canal.html">Canal</a> *canal : <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>)</div>
+<div class="line"><span class="lineno">  111</span>    {</div>
+<div class="line"><span class="lineno">  112</span> </div>
+<div class="line"><span class="lineno">  113</span>        <span class="keywordflow">if</span> (canal-&gt;nome == <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>)</div>
+<div class="line"><span class="lineno">  114</span>        {</div>
+<div class="line"><span class="lineno">  115</span>            <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;texto&quot;</span> &amp;&amp; <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_texto.html">CanalTexto</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  116</span>            {</div>
+<div class="line"><span class="lineno">  117</span>                cout &lt;&lt; <span class="stringliteral">&quot;Já existe um canal de texto com o mesmo nome.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  118</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  119</span>            }</div>
+<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;voz&quot;</span> &amp;&amp; <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_voz.html">CanalVoz</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  121</span>            {</div>
+<div class="line"><span class="lineno">  122</span>                cout &lt;&lt; <span class="stringliteral">&quot;Já existe um canal de voz com o mesmo nome.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  123</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  124</span>            }</div>
+<div class="line"><span class="lineno">  125</span>        }</div>
+<div class="line"><span class="lineno">  126</span>    }</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>    <span class="keyword">auto</span> novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal.html">Canal</a>();</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;texto&quot;</span>)</div>
+<div class="line"><span class="lineno">  131</span>    {</div>
+<div class="line"><span class="lineno">  132</span>        novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal_texto.html">CanalTexto</a>();</div>
+<div class="line"><span class="lineno">  133</span>        novoCanal-&gt;nome = <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>;</div>
+<div class="line"><span class="lineno">  134</span>        <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>.push_back(novoCanal);</div>
+<div class="line"><span class="lineno">  135</span>        cout &lt;&lt; <span class="stringliteral">&quot;Canal de texto &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a> &lt;&lt; <span class="stringliteral">&quot;&#39; criado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  136</span>    }</div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tipo == <span class="stringliteral">&quot;voz&quot;</span>)</div>
+<div class="line"><span class="lineno">  138</span>    {</div>
+<div class="line"><span class="lineno">  139</span>        novoCanal = <span class="keyword">new</span> <a class="code hl_class" href="class_canal_voz.html">CanalVoz</a>();</div>
+<div class="line"><span class="lineno">  140</span>        novoCanal-&gt;nome = <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a>;</div>
+<div class="line"><span class="lineno">  141</span>        <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>.push_back(novoCanal);</div>
+<div class="line"><span class="lineno">  142</span>        cout &lt;&lt; <span class="stringliteral">&quot;Canal de texto &#39;&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">nome</a> &lt;&lt; <span class="stringliteral">&quot;&#39; criado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  145</span>    {</div>
+<div class="line"><span class="lineno">  146</span>        cout &lt;&lt; <span class="stringliteral">&quot;Tipo de canal inválido.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  148</span>    }</div>
+<div class="line"><span class="lineno">  149</span>}</div>
 <div class="ttc" id="aclass_canal_texto_html"><div class="ttname"><a href="class_canal_texto.html">CanalTexto</a></div><div class="ttdoc">Classe que representa um canal de texto.</div><div class="ttdef"><b>Definition:</b> canalTexto.h:22</div></div>
 <div class="ttc" id="aclass_canal_voz_html"><div class="ttname"><a href="class_canal_voz.html">CanalVoz</a></div><div class="ttdoc">Classe que representa um canal de voz.</div><div class="ttdef"><b>Definition:</b> canalVoz.h:21</div></div>
 <div class="ttc" id="aclass_servidor_html_afe5b8d9c020be2cdea189f3aa5958b2d"><div class="ttname"><a href="class_servidor.html#afe5b8d9c020be2cdea189f3aa5958b2d">Servidor::nome</a></div><div class="ttdeci">string nome</div><div class="ttdoc">Nome do servidor.</div><div class="ttdef"><b>Definition:</b> servidor.h:33</div></div>
@@ -302,21 +302,20 @@ Atributos Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   89</span>        <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_texto.html">CanalTexto</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
 <div class="line"><span class="lineno">   90</span>        {</div>
 <div class="line"><span class="lineno">   91</span>            cout &lt;&lt; canal-&gt;nome &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   92</span>            </div>
-<div class="line"><span class="lineno">   93</span>        }</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>    cout &lt;&lt; <span class="stringliteral">&quot;#canais de voz&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="class_canal.html">Canal</a> *canal : <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>)</div>
-<div class="line"><span class="lineno">   98</span>    {</div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_voz.html">CanalVoz</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
-<div class="line"><span class="lineno">  100</span>        {</div>
-<div class="line"><span class="lineno">  101</span>            cout &lt;&lt; canal-&gt;nome &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  102</span>            </div>
-<div class="line"><span class="lineno">  103</span>        }</div>
-<div class="line"><span class="lineno">  104</span>    }</div>
-<div class="line"><span class="lineno">  105</span>    </div>
-<div class="line"><span class="lineno">  106</span>}</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>    cout &lt;&lt; <span class="stringliteral">&quot;#canais de voz&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="class_canal.html">Canal</a> *canal : <a class="code hl_variable" href="class_servidor.html#a05a350c798ee855bf2f8a1ab7938abe1">canais</a>)</div>
+<div class="line"><span class="lineno">   97</span>    {</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_class" href="class_canal_voz.html">CanalVoz</a> *<span class="keyword">&gt;</span>(canal) != <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">   99</span>        {</div>
+<div class="line"><span class="lineno">  100</span>            cout &lt;&lt; canal-&gt;nome &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  101</span>            </div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+<div class="line"><span class="lineno">  104</span>    </div>
+<div class="line"><span class="lineno">  105</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
