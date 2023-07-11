@@ -76,6 +76,7 @@ bool Sistema::login(string email, string senha)
 void Sistema::logout()
 {
     usuarioAtual = nullptr;
+    servidorAtual = nullptr;
 }
 
 /**
@@ -186,25 +187,34 @@ Usuario *Sistema::retornaUsuario(string email)
  * @param codigoConvite Código de convite do servidor.
  * @return 1 se o usuário foi adicionado com sucesso, 2 se o código de convite estiver incorreto, 3 se o servidor não for encontrado.
  */
-int Sistema::adicionarUsuarioNoServidor(string nome, string codigoConvite)
+void Sistema::adicionarUsuarioNoServidor(string nome, string codigoConvite)
 {
+
     for (Servidor *servidor : servidores)
     {
-        if (servidor->nome == nome)
+
+        if (nome == servidor->nome)
         {
             if (servidor->verificaCodigoConvite(codigoConvite))
             {
+
                 servidor->adicionarUsuario(usuarioAtual->id);
                 servidorAtual = servidor;
-                return 1;
+                cout << "Entrou no servidor com sucesso." << endl;
+                return;
+                break;
+                
             }
             else
             {
-                return 2;
+                cout << "Código digitado está errado." << endl;
+                return;
+                break;
             }
         }
     }
-    return 3;
+
+    cout << "Não existe um servidor com esse nome." << endl;
 }
 
 /**
@@ -388,7 +398,7 @@ void Sistema::printMensagens()
 
 /**
  * @brief Chama os métodos salvarUsuarios e salvarServidores para salvar as informações
- * dos usuários e servidores nos arquivos externos. 
+ * dos usuários e servidores nos arquivos externos.
  */
 void Sistema::salvar()
 {
@@ -501,7 +511,7 @@ void Sistema::salvarServidores()
 
 /**
  * @brief Chama os métodos carregarUsuarios e carregarServidores para resgatar as informações
- * dos usuários e servidores nos arquivos externos. 
+ * dos usuários e servidores nos arquivos externos.
  */
 void Sistema::carregar()
 {
@@ -510,7 +520,7 @@ void Sistema::carregar()
 }
 
 /**
- * @brief Recupera os dados referentes aos usuários no arquivo externo e adiciona na aplicação. 
+ * @brief Recupera os dados referentes aos usuários no arquivo externo e adiciona na aplicação.
  */
 void Sistema::carregarUsuarios()
 {
@@ -536,7 +546,7 @@ void Sistema::carregarUsuarios()
             auto usuario = new Usuario();
             getline(arquivo, linha);
             usuario->id = stoi(linha);
-            // Adiciona o id do último usuário    
+            // Adiciona o id do último usuário
             this->id = stoi(linha);
             getline(arquivo, linha);
             usuario->nome = linha;
@@ -556,9 +566,8 @@ void Sistema::carregarUsuarios()
     }
 }
 
-
 /**
- * @brief Recupera os dados referentes aos servidores no arquivo externo e adiciona na aplicação. 
+ * @brief Recupera os dados referentes aos servidores no arquivo externo e adiciona na aplicação.
  */
 void Sistema::carregarServidores()
 {
@@ -577,7 +586,7 @@ void Sistema::carregarServidores()
     {
         // n servidores
         getline(arquivo, linha);
-        //cout << linha << endl;
+        // cout << linha << endl;
         if (linha == "")
         {
             cout << "O arquivo não possui dados." << endl;
@@ -591,52 +600,52 @@ void Sistema::carregarServidores()
 
             // id usuário dono
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             servidor->usuarioDonoId = stoi(linha);
 
             // nome do server
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             servidor->nome = linha;
 
             // descrição server
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             servidor->setDescricao(linha);
 
             // código de convite
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             servidor->setCodigoConvite(linha);
 
             // n usuários
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             qUsuarios = stoi(linha);
 
             for (int i = 0; i < qUsuarios; i++)
             {
                 // id usuário participante
                 getline(arquivo, linha);
-                //cout << linha << endl;
+                // cout << linha << endl;
                 servidor->participantesIDs.push_back(stoi(linha));
             }
 
             // n canais
             getline(arquivo, linha);
-            //cout << linha << endl;
+            // cout << linha << endl;
             qCanais = stoi(linha);
 
             for (int i = 0; i < qCanais; i++)
             {
                 // nome canal
                 getline(arquivo, linha);
-                //cout << linha << endl;
+                // cout << linha << endl;
                 nomeCanal = linha;
 
                 // tipo canal
                 getline(arquivo, linha);
-                //cout << linha << endl;
+                // cout << linha << endl;
 
                 if ("TEXTO" == linha)
                 {
@@ -646,24 +655,24 @@ void Sistema::carregarServidores()
                     // n mensagens
                     getline(arquivo, linha);
                     qMensagem = stoi(linha);
-                    //cout << linha << endl;
+                    // cout << linha << endl;
                     for (int i = 0; i < qMensagem; i++)
                     {
                         auto mensagem = new Mensagem();
 
                         // ID do usuário que a escreveu
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         mensagem->enviadaPor = stoi(linha);
 
                         // Data e hora
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         mensagem->dataHora = linha;
 
                         // conteúdo
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         mensagem->conteudo = linha;
 
                         // adição da mensagem no canal
@@ -680,25 +689,25 @@ void Sistema::carregarServidores()
 
                     // n mensagens
                     getline(arquivo, linha);
-                    //cout << linha << endl;
+                    // cout << linha << endl;
                     qMensagem = stoi(linha);
-                    if(qMensagem != 0){
+                    if (qMensagem != 0)
+                    {
 
                         // ID do usuário que a escreveu
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         canalVoz->ultimaMensagem.enviadaPor = stoi(linha);
 
                         // Data e hora
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         canalVoz->ultimaMensagem.dataHora = linha;
 
                         // conteúdo
                         getline(arquivo, linha);
-                        //cout << linha << endl;
+                        // cout << linha << endl;
                         canalVoz->ultimaMensagem.conteudo = linha;
-
                     }
 
                     // adição do canal no servidor

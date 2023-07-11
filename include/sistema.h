@@ -136,9 +136,8 @@ public:
      * @brief Adiciona o Usuario atualmente logado a um Servidor com o nome e código de convite fornecidos.
      * @param nome Nome do Servidor ao qual o Usuario será adicionado.
      * @param codigoConvite Código de convite do Servidor ao qual o Usuario será adicionado.
-     * @return 1 se o Usuario foi adicionado com sucesso, 2 se o código de convite é inválido e 3 se o Servidor não foi encontrado.
      */
-    int adicionarUsuarioNoServidor(string nome, string codigoConvite);
+    void adicionarUsuarioNoServidor(string nome, string codigoConvite);
 
     /**
      * @brief Verifica se o Usuario está associado a um Servidor.

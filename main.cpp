@@ -88,6 +88,8 @@ void createUser(Sistema *sistema, vector<std::string> &comandos)
         sistema->cadastrarUsuario(novoUsuario);
 
         cout << "Usuário criado" << endl;
+  
+    
     }
 }
 
@@ -120,7 +122,7 @@ void disconnect(Sistema *sistema)
 {
     if (sistema->verificaUsuarioLogado())
     {
-        cout << "Desconectando usuário" << sistema->usuarioAtual->email << endl;
+        cout << "Desconectando usuário: " << sistema->usuarioAtual->email << endl;
         sistema->logout();
     }
     else
@@ -140,6 +142,7 @@ void createServer(Sistema *sistema, vector<std::string> &comandos)
             servidor->usuarioDonoId = sistema->usuarioAtual->id;
             sistema->criarServidor(servidor);
             cout << "Servidor criado" << endl;
+           
         }
         else
         {
@@ -233,21 +236,16 @@ void removeServer(Sistema *sistema, vector<std::string> &comandos)
     }
 }
 
-void enterServer(Sistema *sistema, vector<std::string> &comandos)
+void enterServer(Sistema *sistema, vector<string> &comandos)
 {
-    int resultado = sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]);
-    if (resultado == 1)
-    {
-        cout << "Entrou no servidor com sucesso." << endl;
+    int resultado = 0;
+    
+    if(comandos.size() == 3){
+        sistema->adicionarUsuarioNoServidor(comandos[1], comandos[2]);
+    }else{
+        sistema->adicionarUsuarioNoServidor(comandos[1], "");
     }
-    else if (resultado == 2)
-    {
-        cout << "Código digitado está errado." << endl;
-    }
-    else
-    {
-        cout << "Não existe um servidor com esse nome." << endl;
-    }
+    
 }
 
 void leaveServer(Sistema *sistema)
