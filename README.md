@@ -14,7 +14,7 @@ Esse projeto tem o objetivo de compor a nota da 3° unidade da disciplina de LP1
 Herança, Classes abstratas, Manipulação de Arquivos, Standard Template Library (STL) e vector. O projeto consiste em
 um sistema chamado "Concordo" com recursos similares ao Discord, porém vai funcionar somente em modo texto e sem recursos de rede.
 
-https://drive.google.com/file/d/1UCV0XgL8M02OhzdexoILAv5XrfOFrFHB/view?usp=sharing
+https://docs.google.com/document/d/1cWiRVAXkkgIILL5snvoVAJLwmTi6YP-UmX4l7JNrLBE/edit?usp=sharing
 
 ### Compilação:
 
