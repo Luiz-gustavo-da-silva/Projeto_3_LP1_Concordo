@@ -1,7 +1,7 @@
 CMakeFiles/concordo.dir/src/usuario.cpp.o: \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/usuario.cpp \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/usuario.cpp \
  /usr/include/stdc-predef.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/usuario.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/usuario.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

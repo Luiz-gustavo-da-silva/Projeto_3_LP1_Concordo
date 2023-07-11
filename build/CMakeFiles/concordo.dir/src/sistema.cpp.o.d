@@ -1,7 +1,7 @@
 CMakeFiles/concordo.dir/src/sistema.cpp.o: \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/sistema.cpp \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/sistema.cpp \
  /usr/include/stdc-predef.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/sistema.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/sistema.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -156,9 +156,9 @@ CMakeFiles/concordo.dir/src/sistema.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/canal.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/usuario.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/servidor.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/canalTexto.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/mensagem.h \
- /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo-1/src/../include/canalVoz.h
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canal.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/usuario.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/servidor.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canalTexto.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/mensagem.h \
+ /home/luiz/Área\ de\ Trabalho/Projeto_3_LP1_Concordo/src/../include/canalVoz.h
